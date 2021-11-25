@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+  <interface>
+    <name>Bundle-Ether1</name>
+    <type
+	xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ieee8023adLag</type>
+  </interface>
+</interfaces>
+<routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
+  <control-plane-protocols>
+    <control-plane-protocol>
+      <type
+	  xmlns:bfd-types="urn:ietf:params:xml:ns:yang:ietf-bfd-types">bfd-types:bfdv1</type>
+      <name>name:BFD</name>
+      <bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd">
+        <lag xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-lag">
+          <sessions>
+            <session>
+              <lag-name>Bundle-Ether1</lag-name>
+              <ipv6-dest-addr>2001:db8:112::16</ipv6-dest-addr>
+              <desired-min-tx-interval>
+                100000
+              </desired-min-tx-interval>
+              <required-min-rx-interval>
+                100000
+              </required-min-rx-interval>
+              <use-ipv6>true</use-ipv6>
+            </session>
+          </sessions>
+        </lag>
+      </bfd>
+    </control-plane-protocol>
+  </control-plane-protocols>
+</routing>

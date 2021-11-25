@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
+  <control-plane-protocols>
+    <control-plane-protocol>
+      <type
+	  xmlns:bfd-types="urn:ietf:params:xml:ns:yang:ietf-bfd-types">bfd-types:bfdv1</type>
+      <name>name:BFD</name>
+      <bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd">
+        <ip-mh xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh">
+          <session-groups>
+            <session-group>
+              <source-addr>2001:db8:0:113::103</source-addr>
+              <dest-addr>2001:db8:0:114::100</dest-addr>
+              <desired-min-tx-interval>
+                150000
+              </desired-min-tx-interval>
+              <required-min-rx-interval>
+                150000
+              </required-min-rx-interval>
+              <rx-ttl>240</rx-ttl>
+            </session-group>
+          </session-groups>
+        </ip-mh>
+      </bfd>
+    </control-plane-protocol>
+  </control-plane-protocols>
+</routing>
+

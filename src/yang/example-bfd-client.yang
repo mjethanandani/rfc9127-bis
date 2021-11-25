@@ -1,0 +1,87 @@
+module example-bfd-client {
+  namespace "tag:example.com,2017:example-bfd-client";
+
+  prefix "example-bfd-client";
+
+  import ietf-bfd-types {
+    prefix "bfd-types";
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+  }
+
+  organization "IETF BFD Working Group";
+
+  contact
+    "WG Web:   <http://tools.ietf.org/wg/bfd>
+     WG List:  <rtg-bfd@ietf.org>
+
+     Editors:  Reshad Rahman (rrahman@cisco.com),
+               Lianshu Zheng (vero.zheng@huawei.com),
+               Mahesh Jethanandani (mjethanandani@gmail.com)";
+
+  description
+    "This module contains an example of how a protocol which is a
+     client of BFD would use BFD parameters.
+
+     Copyright (c) 2017 IETF Trust and the persons
+     identified as authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject
+     to the license terms contained in, the Simplified BSD License
+     set forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (http://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC XXXX; see
+     the RFC itself for full legal notices.";
+
+  revision YYYY-MM-DD {
+    description "Initial revision.";
+    reference
+      "RFC XXXX: A YANG data model example for BFD client.";
+  }
+
+  // RFC Ed.: replace XXXX with actual RFC number and remove this
+  // note
+
+  feature routing-app-bfd {
+    description "BFD configuration under routing-app";
+  }
+
+  list area {
+    key "area-id";
+
+    description "Specify a routing area.";
+
+    leaf area-id {
+      type uint32;
+      description "Area";
+    }
+
+    container bfd {
+      description "BFD configuration for the area.";
+      uses bfd-types:client-cfg-parms {
+        if-feature routing-app-bfd;
+      }
+    }
+
+    list interface {
+      key "interface";
+      description "List of interfaces";
+      leaf interface {
+        type if:interface-ref;
+        description "Interface";
+      }
+      container bfd {
+        description "BFD configuration for the interface.";
+        uses bfd-types:client-cfg-parms {
+          if-feature routing-app-bfd;
+        }
+      }
+    }
+  }
+
+}
