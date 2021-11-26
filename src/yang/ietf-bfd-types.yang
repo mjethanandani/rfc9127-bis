@@ -122,8 +122,8 @@ module ietf-bfd-types {
 
   feature client-cfg-parameters {
     description
-      "This feature allows protocol models to configure client
-       parameters for BFD they want to use.";
+      "This feature allows protocol models to configure BFD client
+       session parameters.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
                  Detection (BFD).";
@@ -294,14 +294,12 @@ module ietf-bfd-types {
     description
       "BFD grouping for base configuration parameters.";
     leaf local-multiplier {
-      if-feature "client-cfg-parameters";
       type multiplier;
       default "3";
       description
         "Multiplier transmitted by the local system.";
     }
     choice interval-config-type {
-      if-feature "client-cfg-parameters";
       default "tx-rx-intervals";
       description
         "Two interval values or one value used for both transmit and
@@ -346,7 +344,9 @@ module ietf-bfd-types {
       description
         "Indicates whether BFD is enabled.";
     }
-    uses base-cfg-parms;
+    uses base-cfg-parms {
+      if-feature "client-cfg-parameters";
+    }
   }
 
   grouping common-cfg-parms {
