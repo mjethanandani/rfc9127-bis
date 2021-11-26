@@ -547,7 +547,7 @@
           <preamble/>
 
           <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd@YYYY-MM-DD-tree.txt)
                      ]]></artwork>
         </figure>
 
@@ -562,7 +562,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD-tree.txt)
           <preamble/>
 
           <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-ip-sh@YYYY-MM-DD-tree.txt)
 
 ]]></artwork>
         </figure>
@@ -579,7 +579,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD-tree.txt)
           <preamble/>
 
           <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-ip-mh@YYYY-MM-DD-tree.txt)
                      ]]></artwork>
         </figure>
       </section>
@@ -593,7 +593,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD-tree.txt)
           <preamble/>
 
           <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-lag@YYYY-MM-DD-tree.txt)
                      ]]></artwork>
         </figure>
       </section>
@@ -610,7 +610,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD-tree.txt)
           <preamble/>
 
           <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-mpls@YYYY-MM-DD-tree.txt)
                      ]]></artwork>
         </figure>
       </section>
@@ -670,7 +670,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD-tree.txt)
 
           <artwork align="left"><![CDATA[<CODE BEGINS> file "iana-bfd-types@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/iana-bfd-types@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/iana-bfd-types@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -694,7 +694,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/iana-bfd-types@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd-types@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-types@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-types@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -712,7 +712,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-types@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -730,7 +730,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd-ip-sh@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-ip-sh@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -749,7 +749,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd-ip-mh@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -767,7 +767,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd-lag@YYYY-MM-DD.yang"
 
-  INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD.yang)
+  INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-lag@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -786,7 +786,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
           <artwork align="left"><![CDATA[
 <CODE BEGINS> file "ietf-bfd-mpls@YYYY-MM-DD.yang"
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/ietf-bfd-mpls@YYYY-MM-DD.yang)
 
 <CODE ENDS>
         ]]></artwork>
@@ -1127,7 +1127,9 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
   </middle>
   <back>
     <references pn="section-6">
+      <name slugifiedName="name-references">References</name>
       <references pn="section-6.1">
+        <name slugifiedName="name-normative-references">Normative References</name>
         <reference anchor="RFC3688" target="https://www.rfc-editor.org/info/rfc3688" quoteTitle="true" derivedAnchor="RFC3688">
           <front>
             <title>The IETF XML Registry</title>
@@ -1542,6 +1544,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         </reference>
       </references>
       <references pn="section-6.2">
+        <name slugifiedName="name-informative-references">Informative References</name>
         <reference anchor="RFC3031" target="https://www.rfc-editor.org/info/rfc3031" quoteTitle="true" derivedAnchor="RFC3031">
           <front>
             <title>Multiprotocol Label Switching Architecture</title>
@@ -1725,7 +1728,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         <preamble/>
 
         <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD-tree.txt)
+INSERT_TEXT_FROM_FILE(../bin/example-bfd-echo@YYYY-MM-DD-tree.txt)
                      ]]></artwork>
       </figure>
 
@@ -1741,7 +1744,7 @@ INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD-tree.txt)
 
           <artwork align="left"><![CDATA[
 
-INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD.yang)
+INSERT_TEXT_FROM_FILE(../bin/example-bfd-echo@YYYY-MM-DD.yang)
         ]]></artwork>
         </figure>
       </section>
@@ -1804,6 +1807,20 @@ INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD.yang)
           <email>gregimirsky@gmail.com</email>
         </address>
       </author>
+    </section>
+    <section anchor="updates-since-9127" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.d">
+      <name slugifiedName="updates">Updates since RFC 9127</name>
+      <t>This version of the draft updates the 'ietf-types-module'
+      to define a new feature called 'client-cfg-parameters' and a
+      'if-feature' statement that conditionally includes definition
+      of parameters such as 'multiplier' or
+      'desired-min-tx-interval'. The feature statement allows
+      YANG implementations of protocol such as OSPF, ISIS, PIM
+      and BGP, to support both a model where such parameters are
+      not needed, such as when multiple BFD sessions are supported
+      over a given interface, as well as when they need to be
+      defined per session.
+      </t>
     </section>
   </back>
 </rfc>

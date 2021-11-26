@@ -41,8 +41,8 @@ clean:
 	-rm -f $(next).txt $(next).html
 	-rm -f $(draft)-[0-9][0-9].xml
 	-rm -f $(draft)-[0-9][0-9].xml[~]
-	-rm ../src/yang/*\@$(shell date +%Y)-*-*-tree.txt
-	-rm ../src/yang/*\@$(shell date +%Y)-*-*.yang
+	-rm -f ../bin*\@$(shell date +%Y)-*-*-tree.txt
+	-rm -f ../bin*\@$(shell date +%Y)-*-*.yang
 ifeq (md,$(draft_type))
 	-rm -f $(draft).xml
 endif
@@ -51,16 +51,17 @@ ifeq (org,$(draft_type))
 endif
 
 $(next).xml: $(draft).xml ../src/yang/iana-bfd-types.yang ../src/yang/ietf-bfd-ip-mh.yang ../src/yang/ietf-bfd-ip-sh.yang ../src/yang/ietf-bfd-lag.yang ../src/yang/ietf-bfd-mpls.yang ../src/yang/ietf-bfd.yang
+	mkdir -p ../bin
 	sed -e"s/$(basename $<)-latest/$(basename $@)/" -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" $< > $@
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-ip-mh.yang > ../src/yang/ietf-bfd-ip-mh\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-ip-sh.yang > ../src/yang/ietf-bfd-ip-sh\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-lag.yang > ../src/yang/ietf-bfd-lag\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-mpls.yang > ../src/yang/ietf-bfd-mpls\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd.yang > ../src/yang/ietf-bfd\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/iana-bfd-types.yang > ../src/yang/iana-bfd-types\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-types.yang > ../src/yang/ietf-bfd-types\@$(shell date +%Y-%m-%d).yang
-	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/example-bfd-echo.yang > ../src/yang/example-bfd-echo\@$(shell date +%Y-%m-%d).yang
-#	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/example-bfd-client.yang > ../src/yang/example-bfd-client\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-ip-mh.yang > ../bin/ietf-bfd-ip-mh\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-ip-sh.yang > ../bin/ietf-bfd-ip-sh\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-lag.yang > ../bin/ietf-bfd-lag\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-mpls.yang > ../bin/ietf-bfd-mpls\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd.yang > ../bin/ietf-bfd\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/iana-bfd-types.yang > ../bin/iana-bfd-types\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/ietf-bfd-types.yang > ../bin/ietf-bfd-types\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/example-bfd-echo.yang > ../bin/example-bfd-echo\@$(shell date +%Y-%m-%d).yang
+	sed -e"s/YYYY-MM-DD/$(shell date +%Y-%m-%d)/" ../src/yang/example-bfd-client.yang > ../bin/example-bfd-client\@$(shell date +%Y-%m-%d).yang
 
 	cd ../src; ./validate-and-gen-trees.sh; cd ..;
 	../src/insert-figures.sh $@ > tmp; mv tmp $@

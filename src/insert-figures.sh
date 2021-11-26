@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # make sure input params are good
 if [ "$#" == "0" ]; then
