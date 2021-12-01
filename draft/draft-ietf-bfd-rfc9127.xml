@@ -3250,5 +3250,19 @@ module example-bfd-echo {
         </address>
       </author>
     </section>
+    <section anchor="updates-since-9127" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.d">
+      <name slugifiedName="updates">Updates since RFC 9127</name>
+      <t>This version of the draft updates the 'ietf-types-module'
+      to define a new feature called 'client-cfg-parameters' and a
+      'if-feature' statement that conditionally includes definition
+      of parameters such as 'multiplier' or
+      'desired-min-tx-interval'. The feature statement allows
+      YANG implementations of protocol such as OSPF, ISIS, PIM
+      and BGP, to support both a model where such parameters are
+      not needed, such as when multiple BFD sessions are supported
+      over a given interface, as well as when they need to be
+      defined per session.
+      </t>
+    </section>
   </back>
 </rfc>
