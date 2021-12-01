@@ -531,30 +531,110 @@
         configuration data -- only operational state data. The operational state 
         data consists of overall BFD session statistics, i.e., for BFD on all
         types of forwarding paths.</t>
-
-	<figure align="left">
-          <preamble/>
-
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD-tree.txt)
-                     ]]></artwork>
-        </figure>
-
+        <sourcecode type="yangtree" markers="false" pn="section-2.5-2">
+module: ietf-bfd
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol:
+    +--rw bfd
+       +--ro summary
+          +--ro number-of-sessions?              yang:gauge32
+          +--ro number-of-sessions-up?           yang:gauge32
+          +--ro number-of-sessions-down?         yang:gauge32
+          +--ro number-of-sessions-admin-down?   yang:gauge32
+</sourcecode>
       </section>
-
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.6">
         <name slugifiedName="name-bfd-ip-single-hop-hierarchy">BFD IP Single-Hop Hierarchy</name>
         <t indent="0" pn="section-2.6-1">An "ip-sh" node is added under the "bfd" node in
         "control-plane-protocol". The configuration data and operational state data
         for each BFD IP single-hop session are under this "ip-sh" node.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode type="yangtree" markers="false" pn="section-2.6-2">
+module: ietf-bfd-ip-sh
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol/bfd:bfd:
+    +--rw ip-sh
+       +--ro summary
+       |  +--ro number-of-sessions?              yang:gauge32
+       |  +--ro number-of-sessions-up?           yang:gauge32
+       |  +--ro number-of-sessions-down?         yang:gauge32
+       |  +--ro number-of-sessions-admin-down?   yang:gauge32
+       +--rw sessions
+       |  +--rw session* [interface dest-addr]
+       |     +--rw interface                         if:interface-ref
+       |     +--rw dest-addr                         inet:ip-address
+       |     +--rw source-addr?                      inet:ip-address
+       |     +--rw local-multiplier?                 multiplier
+       |     +--rw (interval-config-type)?
+       |     |  +--:(tx-rx-intervals)
+       |     |  |  +--rw desired-min-tx-interval?    uint32
+       |     |  |  +--rw required-min-rx-interval?   uint32
+       |     |  +--:(single-interval) {single-minimum-interval}?
+       |     |     +--rw min-interval?               uint32
+       |     +--rw demand-enabled?                   boolean
+       |     |       {demand-mode}?
+       |     +--rw admin-down?                       boolean
+       |     +--rw authentication! {authentication}?
+       |     |  +--rw key-chain?    key-chain:key-chain-ref
+       |     |  +--rw meticulous?   boolean
+       |     +--ro path-type?                        identityref
+       |     +--ro ip-encapsulation?                 boolean
+       |     +--ro local-discriminator?              discriminator
+       |     +--ro remote-discriminator?             discriminator
+       |     +--ro remote-multiplier?                multiplier
+       |     +--ro demand-capability?                boolean
+       |     |       {demand-mode}?
+       |     +--ro source-port?                      inet:port-number
+       |     +--ro dest-port?                        inet:port-number
+       |     +--ro session-running
+       |     |  +--ro session-index?                uint32
+       |     |  +--ro local-state?                  state
+       |     |  +--ro remote-state?                 state
+       |     |  +--ro local-diagnostic?
+       |     |  |       iana-bfd-types:diagnostic
+       |     |  +--ro remote-diagnostic?
+       |     |  |       iana-bfd-types:diagnostic
+       |     |  +--ro remote-authenticated?         boolean
+       |     |  +--ro remote-authentication-type?
+       |     |  |       iana-bfd-types:auth-type {authentication}?
+       |     |  +--ro detection-mode?               enumeration
+       |     |  +--ro negotiated-tx-interval?       uint32
+       |     |  +--ro negotiated-rx-interval?       uint32
+       |     |  +--ro detection-time?               uint32
+       |     |  +--ro echo-tx-interval-in-use?      uint32
+       |     |          {echo-mode}?
+       |     +--ro session-statistics
+       |        +--ro create-time?
+       |        |       yang:date-and-time
+       |        +--ro last-down-time?
+       |        |       yang:date-and-time
+       |        +--ro last-up-time?
+       |        |       yang:date-and-time
+       |        +--ro down-count?                     yang:counter32
+       |        +--ro admin-down-count?               yang:counter32
+       |        +--ro receive-packet-count?           yang:counter64
+       |        +--ro send-packet-count?              yang:counter64
+       |        +--ro receive-invalid-packet-count?   yang:counter64
+       |        +--ro send-failed-packet-count?       yang:counter64
+       +--rw interfaces* [interface]
+          +--rw interface         if:interface-ref
+          +--rw authentication! {authentication}?
+             +--rw key-chain?    key-chain:key-chain-ref
+             +--rw meticulous?   boolean
 
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD-tree.txt)
-
-]]></artwork>
-        </figure>
+  notifications:
+    +---n singlehop-notification
+       +--ro local-discr?                 discriminator
+       +--ro remote-discr?                discriminator
+       +--ro new-state?                   state
+       +--ro state-change-reason?         iana-bfd-types:diagnostic
+       +--ro time-of-last-state-change?   yang:date-and-time
+       +--ro dest-addr?                   inet:ip-address
+       +--ro source-addr?                 inet:ip-address
+       +--ro session-index?               uint32
+       +--ro path-type?                   identityref
+       +--ro interface?                   if:interface-ref
+       +--ro echo-enabled?                boolean
+</sourcecode>
       </section>
 
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.7">
@@ -564,13 +644,93 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD-tree.txt)
         for each BFD IP multihop session are under this "ip-mh" node. In the
         operational state model, we support multiple BFD multihop sessions per
         remote address (ECMP); the local discriminator is used as the key.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode type="yangtree" markers="false" pn="section-2.7-2">
+module: ietf-bfd-ip-mh
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol/bfd:bfd:
+    +--rw ip-mh
+       +--ro summary
+       |  +--ro number-of-sessions?              yang:gauge32
+       |  +--ro number-of-sessions-up?           yang:gauge32
+       |  +--ro number-of-sessions-down?         yang:gauge32
+       |  +--ro number-of-sessions-admin-down?   yang:gauge32
+       +--rw session-groups
+          +--rw session-group* [source-addr dest-addr]
+             +--rw source-addr                       inet:ip-address
+             +--rw dest-addr                         inet:ip-address
+             +--rw local-multiplier?                 multiplier
+             +--rw (interval-config-type)?
+             |  +--:(tx-rx-intervals)
+             |  |  +--rw desired-min-tx-interval?    uint32
+             |  |  +--rw required-min-rx-interval?   uint32
+             |  +--:(single-interval) {single-minimum-interval}?
+             |     +--rw min-interval?               uint32
+             +--rw demand-enabled?                   boolean
+             |       {demand-mode}?
+             +--rw admin-down?                       boolean
+             +--rw authentication! {authentication}?
+             |  +--rw key-chain?    key-chain:key-chain-ref
+             |  +--rw meticulous?   boolean
+             +--rw tx-ttl?                           bfd-types:hops
+             +--rw rx-ttl                            bfd-types:hops
+             +--ro sessions* []
+                +--ro path-type?              identityref
+                +--ro ip-encapsulation?       boolean
+                +--ro local-discriminator?    discriminator
+                +--ro remote-discriminator?   discriminator
+                +--ro remote-multiplier?      multiplier
+                +--ro demand-capability?      boolean {demand-mode}?
+                +--ro source-port?            inet:port-number
+                +--ro dest-port?              inet:port-number
+                +--ro session-running
+                |  +--ro session-index?                uint32
+                |  +--ro local-state?                  state
+                |  +--ro remote-state?                 state
+                |  +--ro local-diagnostic?
+                |  |       iana-bfd-types:diagnostic
+                |  +--ro remote-diagnostic?
+                |  |       iana-bfd-types:diagnostic
+                |  +--ro remote-authenticated?         boolean
+                |  +--ro remote-authentication-type?
+                |  |       iana-bfd-types:auth-type {authentication}?
+                |  +--ro detection-mode?               enumeration
+                |  +--ro negotiated-tx-interval?       uint32
+                |  +--ro negotiated-rx-interval?       uint32
+                |  +--ro detection-time?               uint32
+                |  +--ro echo-tx-interval-in-use?      uint32
+                |          {echo-mode}?
+                +--ro session-statistics
+                   +--ro create-time?
+                   |       yang:date-and-time
+                   +--ro last-down-time?
+                   |       yang:date-and-time
+                   +--ro last-up-time?
+                   |       yang:date-and-time
+                   +--ro down-count?
+                   |       yang:counter32
+                   +--ro admin-down-count?
+                   |       yang:counter32
+                   +--ro receive-packet-count?
+                   |       yang:counter64
+                   +--ro send-packet-count?
+                   |       yang:counter64
+                   +--ro receive-invalid-packet-count?
+                   |       yang:counter64
+                   +--ro send-failed-packet-count?
+                           yang:counter64
 
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD-tree.txt)
-                     ]]></artwork>
-        </figure>
+  notifications:
+    +---n multihop-notification
+       +--ro local-discr?                 discriminator
+       +--ro remote-discr?                discriminator
+       +--ro new-state?                   state
+       +--ro state-change-reason?         iana-bfd-types:diagnostic
+       +--ro time-of-last-state-change?   yang:date-and-time
+       +--ro dest-addr?                   inet:ip-address
+       +--ro source-addr?                 inet:ip-address
+       +--ro session-index?               uint32
+       +--ro path-type?                   identityref
+</sourcecode>
       </section>
 
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.8">
@@ -578,13 +738,156 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD-tree.txt)
         <t indent="0" pn="section-2.8-1">A "lag" node is added under the "bfd" node in
         "control-plane-protocol". The configuration data and operational state data
         for each BFD LAG session are under this "lag" node.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode type="yangtree" markers="false" pn="section-2.8-2">
+module: ietf-bfd-lag
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol/bfd:bfd:
+    +--rw lag
+       +--rw micro-bfd-ipv4-session-statistics
+       |  +--ro summary
+       |     +--ro number-of-sessions?              yang:gauge32
+       |     +--ro number-of-sessions-up?           yang:gauge32
+       |     +--ro number-of-sessions-down?         yang:gauge32
+       |     +--ro number-of-sessions-admin-down?   yang:gauge32
+       +--rw micro-bfd-ipv6-session-statistics
+       |  +--ro summary
+       |     +--ro number-of-sessions?              yang:gauge32
+       |     +--ro number-of-sessions-up?           yang:gauge32
+       |     +--ro number-of-sessions-down?         yang:gauge32
+       |     +--ro number-of-sessions-admin-down?   yang:gauge32
+       +--rw sessions
+          +--rw session* [lag-name]
+             +--rw lag-name                          if:interface-ref
+             +--rw ipv4-dest-addr?
+             |       inet:ipv4-address
+             +--rw ipv6-dest-addr?
+             |       inet:ipv6-address
+             +--rw local-multiplier?                 multiplier
+             +--rw (interval-config-type)?
+             |  +--:(tx-rx-intervals)
+             |  |  +--rw desired-min-tx-interval?    uint32
+             |  |  +--rw required-min-rx-interval?   uint32
+             |  +--:(single-interval) {single-minimum-interval}?
+             |     +--rw min-interval?               uint32
+             +--rw demand-enabled?                   boolean
+             |       {demand-mode}?
+             +--rw admin-down?                       boolean
+             +--rw authentication! {authentication}?
+             |  +--rw key-chain?    key-chain:key-chain-ref
+             |  +--rw meticulous?   boolean
+             +--rw use-ipv4?                         boolean
+             +--rw use-ipv6?                         boolean
+             +--ro member-links* [member-link]
+                +--ro member-link       if:interface-ref
+                +--ro micro-bfd-ipv4
+                |  +--ro path-type?              identityref
+                |  +--ro ip-encapsulation?       boolean
+                |  +--ro local-discriminator?    discriminator
+                |  +--ro remote-discriminator?   discriminator
+                |  +--ro remote-multiplier?      multiplier
+                |  +--ro demand-capability?      boolean
+                |  |       {demand-mode}?
+                |  +--ro source-port?            inet:port-number
+                |  +--ro dest-port?              inet:port-number
+                |  +--ro session-running
+                |  |  +--ro session-index?                uint32
+                |  |  +--ro local-state?                  state
+                |  |  +--ro remote-state?                 state
+                |  |  +--ro local-diagnostic?
+                |  |  |       iana-bfd-types:diagnostic
+                |  |  +--ro remote-diagnostic?
+                |  |  |       iana-bfd-types:diagnostic
+                |  |  +--ro remote-authenticated?         boolean
+                |  |  +--ro remote-authentication-type?
+                |  |  |       iana-bfd-types:auth-type
+                |  |  |       {authentication}?
+                |  |  +--ro detection-mode?               enumeration
+                |  |  +--ro negotiated-tx-interval?       uint32
+                |  |  +--ro negotiated-rx-interval?       uint32
+                |  |  +--ro detection-time?               uint32
+                |  |  +--ro echo-tx-interval-in-use?      uint32
+                |  |          {echo-mode}?
+                |  +--ro session-statistics
+                |     +--ro create-time?
+                |     |       yang:date-and-time
+                |     +--ro last-down-time?
+                |     |       yang:date-and-time
+                |     +--ro last-up-time?
+                |     |       yang:date-and-time
+                |     +--ro down-count?
+                |     |       yang:counter32
+                |     +--ro admin-down-count?
+                |     |       yang:counter32
+                |     +--ro receive-packet-count?
+                |     |       yang:counter64
+                |     +--ro send-packet-count?
+                |     |       yang:counter64
+                |     +--ro receive-invalid-packet-count?
+                |     |       yang:counter64
+                |     +--ro send-failed-packet-count?
+                |             yang:counter64
+                +--ro micro-bfd-ipv6
+                   +--ro path-type?              identityref
+                   +--ro ip-encapsulation?       boolean
+                   +--ro local-discriminator?    discriminator
+                   +--ro remote-discriminator?   discriminator
+                   +--ro remote-multiplier?      multiplier
+                   +--ro demand-capability?      boolean
+                   |       {demand-mode}?
+                   +--ro source-port?            inet:port-number
+                   +--ro dest-port?              inet:port-number
+                   +--ro session-running
+                   |  +--ro session-index?                uint32
+                   |  +--ro local-state?                  state
+                   |  +--ro remote-state?                 state
+                   |  +--ro local-diagnostic?
+                   |  |       iana-bfd-types:diagnostic
+                   |  +--ro remote-diagnostic?
+                   |  |       iana-bfd-types:diagnostic
+                   |  +--ro remote-authenticated?         boolean
+                   |  +--ro remote-authentication-type?
+                   |  |       iana-bfd-types:auth-type
+                   |  |       {authentication}?
+                   |  +--ro detection-mode?               enumeration
+                   |  +--ro negotiated-tx-interval?       uint32
+                   |  +--ro negotiated-rx-interval?       uint32
+                   |  +--ro detection-time?               uint32
+                   |  +--ro echo-tx-interval-in-use?      uint32
+                   |          {echo-mode}?
+                   +--ro session-statistics
+                      +--ro create-time?
+                      |       yang:date-and-time
+                      +--ro last-down-time?
+                      |       yang:date-and-time
+                      +--ro last-up-time?
+                      |       yang:date-and-time
+                      +--ro down-count?
+                      |       yang:counter32
+                      +--ro admin-down-count?
+                      |       yang:counter32
+                      +--ro receive-packet-count?
+                      |       yang:counter64
+                      +--ro send-packet-count?
+                      |       yang:counter64
+                      +--ro receive-invalid-packet-count?
+                      |       yang:counter64
+                      +--ro send-failed-packet-count?
+                              yang:counter64
 
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD-tree.txt)
-                     ]]></artwork>
-        </figure>
+  notifications:
+    +---n lag-notification
+       +--ro local-discr?                 discriminator
+       +--ro remote-discr?                discriminator
+       +--ro new-state?                   state
+       +--ro state-change-reason?         iana-bfd-types:diagnostic
+       +--ro time-of-last-state-change?   yang:date-and-time
+       +--ro dest-addr?                   inet:ip-address
+       +--ro source-addr?                 inet:ip-address
+       +--ro session-index?               uint32
+       +--ro path-type?                   identityref
+       +--ro lag-name?                    if:interface-ref
+       +--ro member-link?                 if:interface-ref
+</sourcecode>
       </section>
 
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.9">
@@ -595,13 +898,104 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD-tree.txt)
         sessions per MPLS FEC (ECMP); the local discriminator is used as the key.
         The "mpls" node can be used in a network device (top level) or can be
         mounted in an LNE or network instance.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode type="yangtree" markers="false" pn="section-2.9-2">
+module: ietf-bfd-mpls
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol/bfd:bfd:
+    +--rw mpls
+       +--ro summary
+       |  +--ro number-of-sessions?              yang:gauge32
+       |  +--ro number-of-sessions-up?           yang:gauge32
+       |  +--ro number-of-sessions-down?         yang:gauge32
+       |  +--ro number-of-sessions-admin-down?   yang:gauge32
+       +--rw egress
+       |  +--rw enabled?                          boolean
+       |  +--rw local-multiplier?                 multiplier
+       |  +--rw (interval-config-type)?
+       |  |  +--:(tx-rx-intervals)
+       |  |  |  +--rw desired-min-tx-interval?    uint32
+       |  |  |  +--rw required-min-rx-interval?   uint32
+       |  |  +--:(single-interval) {single-minimum-interval}?
+       |  |     +--rw min-interval?               uint32
+       |  +--rw authentication! {authentication}?
+       |     +--rw key-chain?    key-chain:key-chain-ref
+       |     +--rw meticulous?   boolean
+       +--rw session-groups
+          +--rw session-group* [mpls-fec]
+             +--rw mpls-fec                          inet:ip-prefix
+             +--rw local-multiplier?                 multiplier
+             +--rw (interval-config-type)?
+             |  +--:(tx-rx-intervals)
+             |  |  +--rw desired-min-tx-interval?    uint32
+             |  |  +--rw required-min-rx-interval?   uint32
+             |  +--:(single-interval) {single-minimum-interval}?
+             |     +--rw min-interval?               uint32
+             +--rw demand-enabled?                   boolean
+             |       {demand-mode}?
+             +--rw admin-down?                       boolean
+             +--rw authentication! {authentication}?
+             |  +--rw key-chain?    key-chain:key-chain-ref
+             |  +--rw meticulous?   boolean
+             +--ro sessions* []
+                +--ro path-type?              identityref
+                +--ro ip-encapsulation?       boolean
+                +--ro local-discriminator?    discriminator
+                +--ro remote-discriminator?   discriminator
+                +--ro remote-multiplier?      multiplier
+                +--ro demand-capability?      boolean {demand-mode}?
+                +--ro source-port?            inet:port-number
+                +--ro dest-port?              inet:port-number
+                +--ro session-running
+                |  +--ro session-index?                uint32
+                |  +--ro local-state?                  state
+                |  +--ro remote-state?                 state
+                |  +--ro local-diagnostic?
+                |  |       iana-bfd-types:diagnostic
+                |  +--ro remote-diagnostic?
+                |  |       iana-bfd-types:diagnostic
+                |  +--ro remote-authenticated?         boolean
+                |  +--ro remote-authentication-type?
+                |  |       iana-bfd-types:auth-type {authentication}?
+                |  +--ro detection-mode?               enumeration
+                |  +--ro negotiated-tx-interval?       uint32
+                |  +--ro negotiated-rx-interval?       uint32
+                |  +--ro detection-time?               uint32
+                |  +--ro echo-tx-interval-in-use?      uint32
+                |          {echo-mode}?
+                +--ro session-statistics
+                |  +--ro create-time?
+                |  |       yang:date-and-time
+                |  +--ro last-down-time?
+                |  |       yang:date-and-time
+                |  +--ro last-up-time?
+                |  |       yang:date-and-time
+                |  +--ro down-count?
+                |  |       yang:counter32
+                |  +--ro admin-down-count?
+                |  |       yang:counter32
+                |  +--ro receive-packet-count?
+                |  |       yang:counter64
+                |  +--ro send-packet-count?
+                |  |       yang:counter64
+                |  +--ro receive-invalid-packet-count?
+                |  |       yang:counter64
+                |  +--ro send-failed-packet-count?
+                |          yang:counter64
+                +--ro mpls-dest-address?      inet:ip-address
 
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD-tree.txt)
-                     ]]></artwork>
-        </figure>
+  notifications:
+    +---n mpls-notification
+       +--ro local-discr?                 discriminator
+       +--ro remote-discr?                discriminator
+       +--ro new-state?                   state
+       +--ro state-change-reason?         iana-bfd-types:diagnostic
+       +--ro time-of-last-state-change?   yang:date-and-time
+       +--ro dest-addr?                   inet:ip-address
+       +--ro source-addr?                 inet:ip-address
+       +--ro session-index?               uint32
+       +--ro path-type?                   identityref
+       +--ro mpls-dest-address?           inet:ip-address
+</sourcecode>
       </section>
 
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.10">
@@ -654,16 +1048,167 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD-tree.txt)
         <name slugifiedName="name-iana-bfd-yang-module">IANA BFD YANG Module</name>
         <t indent="0" pn="section-2.11-1">This YANG module imports definitions from <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.  It
       references <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/> and <xref target="RFC6428" format="default" sectionFormat="of" derivedContent="RFC6428"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="iana-bfd-types@2021-10-21.yang" type="yang" markers="true" pn="section-2.11-2">
+module iana-bfd-types {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:iana-bfd-types";
+  prefix iana-bfd-types;
 
-          <artwork align="left"><![CDATA[<CODE BEGINS> file "iana-bfd-types@YYYY-MM-DD.yang"
+  organization
+    "IANA";
+  contact
+    "Internet Assigned Numbers Authority
 
-INSERT_TEXT_FROM_FILE(../src/yang/iana-bfd-types@YYYY-MM-DD.yang)
+     Postal: ICANN
+             12025 Waterfront Drive, Suite 300
+             Los Angeles, CA 90094-2536
+             United States of America
+     Tel:    +1 310 301 5800
+     &lt;mailto:iana@iana.org&gt;";
+  description
+    "This module defines YANG data types for IANA-registered
+     BFD parameters.
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     This YANG module is maintained by IANA and reflects the
+     'BFD Diagnostic Codes' and 'BFD Authentication Types'
+     registries.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Type definitions
+   */
+
+  typedef diagnostic {
+    type enumeration {
+      enum none {
+        value 0;
+        description
+          "No Diagnostic.";
+      }
+      enum control-expiry {
+        value 1;
+        description
+          "Control Detection Time Expired.";
+      }
+      enum echo-failed {
+        value 2;
+        description
+          "Echo Function Failed.";
+      }
+      enum neighbor-down {
+        value 3;
+        description
+          "Neighbor Signaled Session Down.";
+      }
+      enum forwarding-reset {
+        value 4;
+        description
+          "Forwarding Plane Reset.";
+      }
+      enum path-down {
+        value 5;
+        description
+          "Path Down.";
+      }
+      enum concatenated-path-down {
+        value 6;
+        description
+          "Concatenated Path Down.";
+      }
+      enum admin-down {
+        value 7;
+        description
+          "Administratively Down.";
+      }
+      enum reverse-concatenated-path-down {
+        value 8;
+        description
+          "Reverse Concatenated Path Down.";
+      }
+      enum mis-connectivity-defect {
+        value 9;
+        description
+          "Mis-connectivity defect.";
+        reference
+          "RFC 5880: Bidirectional Forwarding Detection (BFD)
+           RFC 6428: Proactive Connectivity Verification, Continuity
+           Check, and Remote Defect Indication for the MPLS Transport
+           Profile";
+      }
+    }
+    description
+      "BFD diagnostic codes as defined in RFC 5880.  Values are
+       maintained in the 'BFD Diagnostic Codes' IANA registry.
+       Range is 0 to 31.";
+    reference
+      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
+  }
+
+  typedef auth-type {
+    type enumeration {
+      enum reserved {
+        value 0;
+        description
+          "Reserved.";
+      }
+      enum simple-password {
+        value 1;
+        description
+          "Simple Password.";
+      }
+      enum keyed-md5 {
+        value 2;
+        description
+          "Keyed MD5.";
+      }
+      enum meticulous-keyed-md5 {
+        value 3;
+        description
+          "Meticulous Keyed MD5.";
+      }
+      enum keyed-sha1 {
+        value 4;
+        description
+          "Keyed SHA1.";
+      }
+      enum meticulous-keyed-sha1 {
+        value 5;
+        description
+          "Meticulous Keyed SHA1.";
+      }
+    }
+    description
+      "BFD authentication type as defined in RFC 5880.  Values are
+       maintained in the 'BFD Authentication Types' IANA registry.
+       Range is 0 to 255.";
+    reference
+      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
+  }
+}
+</sourcecode>
       </section>
 
       <section anchor="BFD-TYPES" numbered="true" toc="include" removeInRFC="false" pn="section-2.12">
@@ -695,17 +1240,85 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-types@YYYY-MM-DD.yang)
         <t indent="0" pn="section-2.13-1">This YANG module imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. It also references
         <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="ietf-bfd@2021-10-21.yang" type="yang" markers="true" pn="section-2.13-2">
+module ietf-bfd {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-bfd";
+  prefix bfd;
 
-          <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd@YYYY-MM-DD.yang"
+  import ietf-bfd-types {
+    prefix bfd-types;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-routing {
+    prefix rt;
+    reference
+      "RFC 8349: A YANG Data Model for Routing Management
+       (NMDA Version)";
+  }
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD.yang)
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains the YANG definition for BFD parameters as
+     per RFC 5880.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 5880: Bidirectional Forwarding Detection (BFD)
+     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol" {
+    when "derived-from-or-self(rt:type, 'bfd-types:bfdv1')" {
+      description
+        "This augmentation is only valid for a control-plane protocol
+         instance of BFD (type 'bfdv1').";
+    }
+    description
+      "BFD augmentation.";
+    container bfd {
+      description
+        "BFD top-level container.";
+      uses bfd-types:session-statistics-summary;
+    }
+  }
+}
+</sourcecode>
       </section>
 
       <section anchor="bfd-ip-single-hop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.14">
@@ -713,73 +1326,707 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD.yang)
         <t indent="0" pn="section-2.14-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5881" format="default" sectionFormat="of" derivedContent="RFC5881"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="ietf-bfd-ip-sh@2021-10-21.yang" type="yang" markers="true" pn="section-2.14-2">
+module ietf-bfd-ip-sh {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh";
+  prefix bfd-ip-sh;
 
-          <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-ip-sh@YYYY-MM-DD.yang"
+  import ietf-bfd-types {
+    prefix bfd-types;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-bfd {
+    prefix bfd;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-interfaces {
+    prefix if;
+    reference
+      "RFC 8343: A YANG Data Model for Interface Management";
+  }
+  import ietf-inet-types {
+    prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types";
+  }
+  import ietf-routing {
+    prefix rt;
+    reference
+      "RFC 8349: A YANG Data Model for Routing Management
+       (NMDA Version)";
+  }
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD.yang)
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains the YANG definition for BFD IP single-hop
+     as per RFC 5881.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 5881: Bidirectional Forwarding Detection (BFD)
+     for IPv4 and IPv6 (Single Hop)
+     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Augments
+   */
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol/bfd:bfd" {
+    description
+      "BFD augmentation for IP single-hop.";
+    container ip-sh {
+      description
+        "BFD IP single-hop top-level container.";
+      uses bfd-types:session-statistics-summary;
+      container sessions {
+        description
+          "BFD IP single-hop sessions.";
+        list session {
+          key "interface dest-addr";
+          description
+            "List of IP single-hop sessions.";
+          leaf interface {
+            type if:interface-ref;
+            description
+              "Interface on which the BFD session is running.";
+          }
+          leaf dest-addr {
+            type inet:ip-address;
+            description
+              "IP address of the peer.";
+          }
+          leaf source-addr {
+            type inet:ip-address;
+            description
+              "Local IP address.";
+          }
+          uses bfd-types:common-cfg-parms;
+          uses bfd-types:all-session;
+        }
+      }
+      list interfaces {
+        key "interface";
+        description
+          "List of interfaces.";
+        leaf interface {
+          type if:interface-ref;
+          description
+            "BFD information for this interface.";
+        }
+        uses bfd-types:auth-parms;
+      }
+    }
+  }
+
+  /*
+   * Notifications
+   */
+
+  notification singlehop-notification {
+    description
+      "Notification for BFD single-hop session state change.  An
+       implementation may rate-limit notifications, e.g., when a
+       session is continuously changing state.";
+    uses bfd-types:notification-parms;
+    leaf interface {
+      type if:interface-ref;
+      description
+        "Interface to which this BFD session belongs.";
+    }
+    leaf echo-enabled {
+      type boolean;
+      description
+        "Indicates whether Echo was enabled for BFD.";
+    }
+  }
+}
+</sourcecode>
       </section>
-
       <section anchor="bfd-ip-multihop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.15">
         <name slugifiedName="name-bfd-ip-multihop-yang-module">BFD IP Multihop YANG Module</name>
         <t indent="0" pn="section-2.15-1">This YANG module imports typedefs from
         <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5883" format="default" sectionFormat="of" derivedContent="RFC5883"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="ietf-bfd-ip-mh@2021-10-21.yang" type="yang" markers="true" pn="section-2.15-2">
+module ietf-bfd-ip-mh {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh";
+  prefix bfd-ip-mh;
 
-          <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-ip-mh@YYYY-MM-DD.yang"
+  import ietf-bfd-types {
+    prefix bfd-types;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-bfd {
+    prefix bfd;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-inet-types {
+    prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types";
+  }
+  import ietf-routing {
+    prefix rt;
+    reference
+      "RFC 8349: A YANG Data Model for Routing Management
+       (NMDA Version)";
+  }
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains the YANG definition for BFD IP multihop
+     as per RFC 5883.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 5883: Bidirectional Forwarding Detection (BFD) for
+     Multihop Paths
+     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Augments
+   */
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol/bfd:bfd" {
+    description
+      "BFD augmentation for IP multihop.";
+    container ip-mh {
+      description
+        "BFD IP multihop top-level container.";
+      uses bfd-types:session-statistics-summary;
+      container session-groups {
+        description
+          "BFD IP multihop session groups.";
+        list session-group {
+          key "source-addr dest-addr";
+          description
+            "Group of BFD IP multihop sessions (for ECMP).  A
+             group of sessions is between one source and one
+             destination.  Each session has a different field
+             in the UDP/IP header for ECMP.";
+          leaf source-addr {
+            type inet:ip-address;
+            description
+              "Local IP address.";
+          }
+          leaf dest-addr {
+            type inet:ip-address;
+            description
+              "IP address of the peer.";
+          }
+          uses bfd-types:common-cfg-parms;
+          leaf tx-ttl {
+            type bfd-types:hops;
+            default "255";
+            description
+              "Hop count of outgoing BFD control packets.";
+          }
+          leaf rx-ttl {
+            type bfd-types:hops;
+            mandatory true;
+            description
+              "Minimum allowed hop count value for incoming BFD
+               control packets.  Control packets whose hop count is
+               lower than this value are dropped.";
+          }
+          list sessions {
+            config false;
+            description
+              "The multiple BFD sessions between a source and a
+               destination.";
+            uses bfd-types:all-session;
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * Notifications
+   */
+
+  notification multihop-notification {
+    description
+      "Notification for BFD multihop session state change.  An
+       implementation may rate-limit notifications, e.g., when a
+       session is continuously changing state.";
+    uses bfd-types:notification-parms;
+  }
+}
+</sourcecode>
       </section>
-
       <section anchor="bfd-over-lag-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.16">
         <name slugifiedName="name-bfd-over-lag-yang-module">BFD-over-LAG YANG Module</name>
         <t indent="0" pn="section-2.16-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. Additionally, it references
         <xref target="RFC7130" format="default" sectionFormat="of" derivedContent="RFC7130"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="ietf-bfd-lag@2021-10-21.yang" type="yang" markers="true" pn="section-2.16-2">
+module ietf-bfd-lag {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-lag";
+  prefix bfd-lag;
 
-          <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-lag@YYYY-MM-DD.yang"
+  import ietf-bfd-types {
+    prefix bfd-types;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-bfd {
+    prefix bfd;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-interfaces {
+    prefix if;
+    reference
+      "RFC 8343: A YANG Data Model for Interface Management";
+  }
+  import ietf-inet-types {
+    prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types";
+  }
+  import ietf-routing {
+    prefix rt;
+    reference
+      "RFC 8349: A YANG Data Model for Routing Management
+       (NMDA Version)";
+  }
 
-  INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-lag@YYYY-MM-DD.yang)
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains the YANG definition for BFD-over-LAG
+     interfaces as per RFC 7130.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 7130: Bidirectional Forwarding Detection (BFD) on
+     Link Aggregation Group (LAG) Interfaces
+     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Augments
+   */
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol/bfd:bfd" {
+    description
+      "BFD augmentation for a LAG.";
+    container lag {
+      description
+        "BFD-over-LAG top-level container.";
+      container micro-bfd-ipv4-session-statistics {
+        description
+          "Micro-BFD IPv4 session counters.";
+        uses bfd-types:session-statistics-summary;
+      }
+      container micro-bfd-ipv6-session-statistics {
+        description
+          "Micro-BFD IPv6 session counters.";
+        uses bfd-types:session-statistics-summary;
+      }
+      container sessions {
+        description
+          "BFD-over-LAG sessions.";
+        list session {
+          key "lag-name";
+          description
+            "List of BFD-over-LAG sessions.";
+          leaf lag-name {
+            type if:interface-ref;
+            description
+              "Name of the LAG.";
+          }
+          leaf ipv4-dest-addr {
+            type inet:ipv4-address;
+            description
+              "IPv4 address of the peer, for IPv4 micro-BFD.";
+          }
+          leaf ipv6-dest-addr {
+            type inet:ipv6-address;
+            description
+              "IPv6 address of the peer, for IPv6 micro-BFD.";
+          }
+          uses bfd-types:common-cfg-parms;
+          leaf use-ipv4 {
+            type boolean;
+            description
+              "Using IPv4 micro-BFD.";
+          }
+          leaf use-ipv6 {
+            type boolean;
+            description
+              "Using IPv6 micro-BFD.";
+          }
+          list member-links {
+            key "member-link";
+            config false;
+            description
+              "Micro-BFD over a LAG.  This represents one
+               member link.";
+            leaf member-link {
+              type if:interface-ref;
+              description
+                "Member link on which micro-BFD is running.";
+            }
+            container micro-bfd-ipv4 {
+              when "../../use-ipv4 = 'true'" {
+                description
+                  "Needed only if IPv4 is used.";
+              }
+              description
+                "Micro-BFD IPv4 session state on a member link.";
+              uses bfd-types:all-session;
+            }
+            container micro-bfd-ipv6 {
+              when "../../use-ipv6 = 'true'" {
+                description
+                  "Needed only if IPv6 is used.";
+              }
+              description
+                "Micro-BFD IPv6 session state on a member link.";
+              uses bfd-types:all-session;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * Notifications
+   */
+
+  notification lag-notification {
+    description
+      "Notification for BFD-over-LAG session state change.
+       An implementation may rate-limit notifications, e.g., when a
+       session is continuously changing state.";
+    uses bfd-types:notification-parms;
+    leaf lag-name {
+      type if:interface-ref;
+      description
+        "LAG interface name.";
+    }
+    leaf member-link {
+      type if:interface-ref;
+      description
+        "Member link on which BFD is running.";
+    }
+  }
+}
+</sourcecode>
       </section>
-
       <section anchor="bfd-over-mpls-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.17">
         <name slugifiedName="name-bfd-over-mpls-yang-module">BFD-over-MPLS YANG Module</name>
         <t indent="0" pn="section-2.17-1">This YANG module imports typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>.
         Additionally, it references <xref target="RFC5586" format="default" sectionFormat="of" derivedContent="RFC5586"/> and
         <xref target="RFC5884" format="default" sectionFormat="of" derivedContent="RFC5884"/>.</t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode name="ietf-bfd-mpls@2021-10-21.yang" type="yang" markers="true" pn="section-2.17-2">
+module ietf-bfd-mpls {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-mpls";
+  prefix bfd-mpls;
 
-          <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-mpls@YYYY-MM-DD.yang"
+  import ietf-bfd-types {
+    prefix bfd-types;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-bfd {
+    prefix bfd;
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+  import ietf-inet-types {
+    prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types";
+  }
+  import ietf-routing {
+    prefix rt;
+    reference
+      "RFC 8349: A YANG Data Model for Routing Management
+       (NMDA Version)";
+  }
 
-INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD.yang)
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
 
-<CODE ENDS>
-        ]]></artwork>
-        </figure>
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains the YANG definition for BFD parameters for
+     MPLS LSPs as per RFC 5884.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+  reference
+    "RFC 5884: Bidirectional Forwarding Detection (BFD)
+     for MPLS Label Switched Paths (LSPs)
+     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     Detection (BFD)";
+
+  revision 2021-10-21 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Identity definitions
+   */
+
+  identity encap-gach {
+    base bfd-types:encap-type;
+    description
+      "BFD with G-ACh encapsulation as per RFC 5586.";
+    reference
+      "RFC 5586: MPLS Generic Associated Channel";
+  }
+
+  identity encap-ip-gach {
+    base bfd-types:encap-type;
+    description
+      "BFD with IP and G-ACh encapsulation as per RFC 5586.";
+  }
+
+  /*
+   * Groupings
+   */
+
+  grouping encap-cfg {
+    description
+      "Configuration for BFD encapsulation.";
+    leaf encap {
+      type identityref {
+        base bfd-types:encap-type;
+      }
+      default "bfd-types:encap-ip";
+      description
+        "BFD encapsulation.";
+    }
+  }
+
+  grouping mpls-dest-address {
+    description
+      "Destination address as per RFC 5884.";
+    reference
+      "RFC 5884: Bidirectional Forwarding Detection (BFD)
+       for MPLS Label Switched Paths (LSPs)";
+    leaf mpls-dest-address {
+      type inet:ip-address;
+      config false;
+      description
+        "Destination address as per RFC 5884.
+         Needed if IP encapsulation is used.";
+    }
+  }
+
+  /*
+   * Augments
+   */
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol/bfd:bfd" {
+    description
+      "BFD augmentation for MPLS.";
+    container mpls {
+      description
+        "BFD MPLS top-level container.";
+      uses bfd-types:session-statistics-summary;
+      container egress {
+        description
+          "Egress configuration.";
+        uses bfd-types:client-cfg-parms;
+        uses bfd-types:auth-parms;
+      }
+      container session-groups {
+        description
+          "BFD-over-MPLS session groups.";
+        list session-group {
+          key "mpls-fec";
+          description
+            "Group of BFD MPLS sessions (for ECMP).  A group of
+             sessions is for one FEC.  Each session has a different
+             field in the UDP/IP header for ECMP.";
+          leaf mpls-fec {
+            type inet:ip-prefix;
+            description
+              "MPLS FEC.";
+          }
+          uses bfd-types:common-cfg-parms;
+          list sessions {
+            config false;
+            description
+              "The BFD sessions for an MPLS FEC.  The local
+               discriminator is unique for each session in the
+               group.";
+            uses bfd-types:all-session;
+            uses bfd-mpls:mpls-dest-address;
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * Notifications
+   */
+
+  notification mpls-notification {
+    description
+      "Notification for BFD-over-MPLS FEC session state change.
+       An implementation may rate-limit notifications, e.g., when a
+       session is continuously changing state.";
+    uses bfd-types:notification-parms;
+    leaf mpls-dest-address {
+      type inet:ip-address;
+      description
+        "Destination address as per RFC 5884.
+         Needed if IP encapsulation is used.";
+    }
+  }
+}
+</sourcecode>
       </section>
     </section>
     <section numbered="true" toc="include" removeInRFC="false" pn="section-3">
@@ -792,27 +2039,85 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD.yang)
         <t indent="0" pn="section-3.1-1">The following is an example configuration for a BFD IP single-hop
         session. The desired transmit interval and the required receive
         interval are both set to 10 ms.</t>
-        <figure align="left">
-          <preamble/>
-
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-ip-sh.xml)
-
-]]></artwork>
-        </figure>
+        <sourcecode type="xml" markers="false" pn="section-3.1-2">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+  &lt;interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces"&gt;
+    &lt;interface&gt;
+      &lt;name&gt;eth0&lt;/name&gt;
+      &lt;type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"&gt;
+        ianaift:ethernetCsmacd
+      &lt;/type&gt;
+    &lt;/interface&gt;
+  &lt;/interfaces&gt;
+  &lt;routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing"&gt;
+    &lt;control-plane-protocols&gt;
+      &lt;control-plane-protocol&gt;
+        &lt;type xmlns:bfd-types=
+            "urn:ietf:params:xml:ns:yang:ietf-bfd-types"&gt;
+          bfd-types:bfdv1
+        &lt;/type&gt;
+        &lt;name&gt;name:BFD&lt;/name&gt;
+        &lt;bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd"&gt;
+          &lt;ip-sh xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh"&gt;
+            &lt;sessions&gt;
+              &lt;session&gt;
+                &lt;interface&gt;eth0&lt;/interface&gt;
+                &lt;dest-addr&gt;2001:db8:0:113::101&lt;/dest-addr&gt;
+                &lt;desired-min-tx-interval&gt;
+                  10000
+                &lt;/desired-min-tx-interval&gt;
+                &lt;required-min-rx-interval&gt;
+                  10000
+                &lt;/required-min-rx-interval&gt;
+              &lt;/session&gt;
+            &lt;/sessions&gt;
+          &lt;/ip-sh&gt;
+        &lt;/bfd&gt;
+      &lt;/control-plane-protocol&gt;
+    &lt;/control-plane-protocols&gt;
+  &lt;/routing&gt;
+&lt;/config&gt;
+</sourcecode>
       </section>
       <section numbered="true" toc="include" removeInRFC="false" pn="section-3.2">
         <name slugifiedName="name-ip-multihop">IP Multihop</name>
         <t indent="0" pn="section-3.2-1">The following is an example configuration for a BFD IP multihop
         session group. The desired transmit interval and the required receive
         interval are both set to 150 ms.</t>
-        <figure align="left">
-          <preamble/>
-
-          <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-ip-mh.xml)
- ]]></artwork>
-        </figure>
+        <sourcecode type="xml" markers="false" pn="section-3.2-2">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+  &lt;routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing"&gt;
+    &lt;control-plane-protocols&gt;
+      &lt;control-plane-protocol&gt;
+        &lt;type xmlns:bfd-types=
+            "urn:ietf:params:xml:ns:yang:ietf-bfd-types"&gt;
+          bfd-types:bfdv1
+        &lt;/type&gt;
+        &lt;name&gt;name:BFD&lt;/name&gt;
+        &lt;bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd"&gt;
+          &lt;ip-mh xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh"&gt;
+            &lt;session-groups&gt;
+              &lt;session-group&gt;
+                &lt;source-addr&gt;2001:db8:0:113::103&lt;/source-addr&gt;
+                &lt;dest-addr&gt;2001:db8:0:114::100&lt;/dest-addr&gt;
+                &lt;desired-min-tx-interval&gt;
+                  150000
+                &lt;/desired-min-tx-interval&gt;
+                &lt;required-min-rx-interval&gt;
+                  150000
+                &lt;/required-min-rx-interval&gt;
+                &lt;rx-ttl&gt;240&lt;/rx-ttl&gt;
+              &lt;/session-group&gt;
+            &lt;/session-groups&gt;
+          &lt;/ip-mh&gt;
+        &lt;/bfd&gt;
+      &lt;/control-plane-protocol&gt;
+    &lt;/control-plane-protocols&gt;
+  &lt;/routing&gt;
+&lt;/config&gt;
+</sourcecode>
       </section>
       <section numbered="true" toc="include" removeInRFC="false" pn="section-3.3">
         <name slugifiedName="name-lag">LAG</name>
@@ -820,24 +2125,84 @@ INSERT_TEXT_FROM_FILE(../src/yang/example-ip-mh.xml)
         In this case, an interface named "Bundle-Ether1" of interface type
         "ieee8023adLag" has a desired transmit interval and required receive interval
         set to 10 ms.</t>
-        <t><figure>
-            <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-lag.xml)
-
-]]></artwork>
-          </figure></t>
+        <sourcecode type="xml" markers="false" pn="section-3.3-2">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+  &lt;interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces"&gt;
+    &lt;interface&gt;
+      &lt;name&gt;Bundle-Ether1&lt;/name&gt;
+      &lt;type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"&gt;
+        ianaift:ieee8023adLag
+      &lt;/type&gt;
+    &lt;/interface&gt;
+  &lt;/interfaces&gt;
+  &lt;routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing"&gt;
+    &lt;control-plane-protocols&gt;
+      &lt;control-plane-protocol&gt;
+        &lt;type xmlns:bfd-types=
+            "urn:ietf:params:xml:ns:yang:ietf-bfd-types"&gt;
+          bfd-types:bfdv1
+        &lt;/type&gt;
+        &lt;name&gt;name:BFD&lt;/name&gt;
+        &lt;bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd"&gt;
+          &lt;lag xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-lag"&gt;
+            &lt;sessions&gt;
+              &lt;session&gt;
+                &lt;lag-name&gt;Bundle-Ether1&lt;/lag-name&gt;
+                &lt;ipv6-dest-addr&gt;2001:db8:112::16&lt;/ipv6-dest-addr&gt;
+                &lt;desired-min-tx-interval&gt;
+                  100000
+                &lt;/desired-min-tx-interval&gt;
+                &lt;required-min-rx-interval&gt;
+                  100000
+                &lt;/required-min-rx-interval&gt;
+                &lt;use-ipv6&gt;true&lt;/use-ipv6&gt;
+              &lt;/session&gt;
+            &lt;/sessions&gt;
+          &lt;/lag&gt;
+        &lt;/bfd&gt;
+      &lt;/control-plane-protocol&gt;
+    &lt;/control-plane-protocols&gt;
+  &lt;/routing&gt;
+&lt;/config&gt;
+</sourcecode>
       </section>
       <section numbered="true" toc="include" removeInRFC="false" pn="section-3.4">
         <name slugifiedName="name-mpls">MPLS</name>
         <t indent="0" pn="section-3.4-1">The following is an example of BFD configured for an MPLS LSP. In
         this case, the desired transmit interval and required receive interval
         are both set to 250 ms.</t>
-        <t><figure>
-            <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-mpls.xml)
-
-]]></artwork>
-          </figure></t>
+        <sourcecode type="xml" markers="false" pn="section-3.4-2">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+  &lt;routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing"&gt;
+    &lt;control-plane-protocols&gt;
+      &lt;control-plane-protocol&gt;
+        &lt;type xmlns:bfd-types=
+            "urn:ietf:params:xml:ns:yang:ietf-bfd-types"&gt;
+          bfd-types:bfdv1
+        &lt;/type&gt;
+        &lt;name&gt;name:BFD&lt;/name&gt;
+        &lt;bfd xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd"&gt;
+          &lt;mpls xmlns="urn:ietf:params:xml:ns:yang:ietf-bfd-mpls"&gt;
+            &lt;session-groups&gt;
+              &lt;session-group&gt;
+                &lt;mpls-fec&gt;2001:db8:114::/116&lt;/mpls-fec&gt;
+                &lt;desired-min-tx-interval&gt;
+                  250000
+                &lt;/desired-min-tx-interval&gt;
+                &lt;required-min-rx-interval&gt;
+                  250000
+                &lt;/required-min-rx-interval&gt;
+              &lt;/session-group&gt;
+            &lt;/session-groups&gt;
+          &lt;/mpls&gt;
+        &lt;/bfd&gt;
+      &lt;/control-plane-protocol&gt;
+    &lt;/control-plane-protocols&gt;
+  &lt;/routing&gt;
+&lt;/config&gt;
+</sourcecode>
       </section>
     </section>
     <section numbered="true" toc="include" removeInRFC="false" pn="section-4">
@@ -1710,14 +3075,15 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
       <xref target="RFC5881" format="default" sectionFormat="of" derivedContent="RFC5881"/>, is implementation specific. In this appendix, we
       provide an example of how the Echo function can be implemented via
       configuration.</t>
-      <figure align="left">
-        <preamble/>
-
-        <artwork align="left"><![CDATA[
-INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD-tree.txt)
-                     ]]></artwork>
-      </figure>
-
+      <sourcecode type="yangtree" markers="false" pn="section-appendix.a-2">
+module: example-bfd-echo
+  augment /rt:routing/rt:control-plane-protocols
+            /rt:control-plane-protocol/bfd:bfd/bfd-ip-sh:ip-sh
+            /bfd-ip-sh:sessions:
+    +--rw echo {bfd-types:echo-mode}?
+       +--rw desired-min-echo-tx-interval?    uint32
+       +--rw required-min-echo-rx-interval?   uint32
+</sourcecode>
       <section numbered="true" toc="include" removeInRFC="false" pn="section-appendix.a.1">
         <name slugifiedName="name-example-yang-module-for-bfd">Example YANG Module for BFD Echo Function Configuration</name>
         <t indent="0" pn="section-appendix.a.1-1">This appendix provides an example YANG module for
@@ -1725,14 +3091,104 @@ INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD-tree.txt)
         "/routing/control-plane-protocols/control-plane-protocol" from
         <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.
         </t>
-        <figure align="left">
-          <preamble/>
+        <sourcecode type="yang" markers="false" pn="section-appendix.a.1-2">
+module example-bfd-echo {
+  namespace "tag:example.com,2021:example-bfd-echo";
+  prefix example-bfd-echo;
 
-          <artwork align="left"><![CDATA[
+  import ietf-bfd-types {
+    prefix bfd-types;
+  }
+  import ietf-bfd {
+    prefix bfd;
+  }
+  import ietf-bfd-ip-sh {
+    prefix bfd-ip-sh;
+  }
+  import ietf-routing {
+    prefix rt;
+  }
 
-INSERT_TEXT_FROM_FILE(../src/yang/example-bfd-echo@YYYY-MM-DD.yang)
-        ]]></artwork>
-        </figure>
+  organization
+    "IETF BFD Working Group";
+  contact
+    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
+     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+
+     Editor:   Reshad Rahman
+               &lt;mailto:reshad@yahoo.com&gt;
+
+     Editor:   Lianshu Zheng
+               &lt;mailto:veronique_cheng@hotmail.com&gt;
+
+     Editor:   Mahesh Jethanandani
+               &lt;mailto:mjethanandani@gmail.com&gt;";
+  description
+    "This module contains an example YANG augmentation for
+     configuration of the BFD Echo function.
+
+     Copyright (c) 2021 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC 9127; see the
+     RFC itself for full legal notices.";
+
+  revision 2021-09-03 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD)";
+  }
+
+  /*
+   * Groupings
+   */
+
+  grouping echo-cfg-parms {
+    description
+      "BFD grouping for Echo configuration parameters.";
+    leaf desired-min-echo-tx-interval {
+      type uint32;
+      units "microseconds";
+      default "0";
+      description
+        "This is the minimum interval that the local system would
+         like to use when transmitting BFD Echo packets.  If 0,
+         the Echo function as defined in BFD (RFC 5880) is
+         disabled.";
+    }
+    leaf required-min-echo-rx-interval {
+      type uint32;
+      units "microseconds";
+      default "0";
+      description
+        "This is the Required Min Echo RX Interval as defined in BFD
+         (RFC 5880).";
+    }
+  }
+
+  augment "/rt:routing/rt:control-plane-protocols/"
+        + "rt:control-plane-protocol/bfd:bfd/bfd-ip-sh:ip-sh/"
+        + "bfd-ip-sh:sessions" {
+    description
+      "Augmentation for the BFD Echo function.";
+    container echo {
+      if-feature "bfd-types:echo-mode";
+      description
+        "BFD Echo function container.";
+      uses echo-cfg-parms;
+    }
+  }
+}
+</sourcecode>
       </section>
     </section>
     <section numbered="false" toc="include" removeInRFC="false" pn="section-appendix.b">
