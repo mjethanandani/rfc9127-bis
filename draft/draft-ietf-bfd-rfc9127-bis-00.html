@@ -6,8 +6,8 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
 <meta content="Reshad Rahman" name="author">
-<meta content="Lianshu Zheng" name="author">
 <meta content="Mahesh Jethanandani" name="author">
+<meta content="Lianshu Zheng" name="author">
 <meta content="Santosh Pallagatti" name="author">
 <meta content="Greg Mirsky" name="author">
 <meta content="
@@ -23,7 +23,7 @@
 <meta content="IS-IS" name="keyword">
 <meta content="TCP-AO" name="keyword">
 <meta content="MD5" name="keyword">
-<meta content="draft-ietf-bfd-rfc9127bis-latest" name="ietf.draft">
+<meta content="draft-ietf-bfd-rfc9127-bis-00" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.11.1
     Python 3.10.0
@@ -42,7 +42,7 @@
     setuptools 57.4.0
     six 1.16.0
 -->
-<link href="draft-ietf-bfd-rfc9127-00.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-bfd-rfc9127-bis-00.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1203,7 +1203,7 @@ li > p:last-of-type {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rahman, et al.</td>
-<td class="center">Expires 4 June 2022</td>
+<td class="center">Expires 10 June 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1213,15 +1213,18 @@ li > p:last-of-type {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-bfd-rfc9127bis-latest</dd>
+<dd class="internet-draft">draft-ietf-bfd-rfc9127-bis-00</dd>
+<dt class="label-obsoletes">Obsoletes:</dt>
+<dd class="obsoletes">
+<a href="https://www.rfc-editor.org/rfc/rfc9127" class="eref">9127</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-12-01" class="published">1 December 2021</time>
+<time datetime="2021-12-07" class="published">7 December 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-06-04">4 June 2022</time></dd>
+<dd class="expires"><time datetime="2022-06-10">10 June 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1229,14 +1232,14 @@ li > p:last-of-type {
 </div>
 </div>
 <div class="author">
-      <div class="author-name">L. Zheng, <span class="editor">Ed.</span>
-</div>
-<div class="org">Huawei Technologies</div>
-</div>
-<div class="author">
       <div class="author-name">M. Jethanandani, <span class="editor">Ed.</span>
 </div>
 <div class="org">Xoriant Corporation</div>
+</div>
+<div class="author">
+      <div class="author-name">L. Zheng, <span class="editor">Ed.</span>
+</div>
+<div class="org">Huawei Technologies</div>
 </div>
 <div class="author">
       <div class="author-name">S. Pallagatti</div>
@@ -1276,7 +1279,7 @@ li > p:last-of-type {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 June 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 June 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2539,7 +2542,7 @@ module iana-bfd-types {
         <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>.<a href="#section-2.12-1" class="pilcrow">¶</a></p>
 <p id="section-2.12-2" class="keepWithNext"></p>
 <div id="section-2.12-3">
-<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-01.yang"
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-07.yang"
 
 
 module ietf-bfd-types {
@@ -2611,7 +2614,7 @@ module ietf-bfd-types {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-01 {
+  revision 2021-12-07 {
     description
       "9127-bis.";
     reference
@@ -2664,7 +2667,7 @@ module ietf-bfd-types {
        Section 6.4";
   }
 
-  feature client-cfg-parameters {
+  feature client-base-cfg-parms {
     description
       "This feature allows protocol models to configure BFD client
        session parameters.";
@@ -2889,7 +2892,7 @@ module ietf-bfd-types {
         "Indicates whether BFD is enabled.";
     }
     uses base-cfg-parms {
-      if-feature "client-cfg-parameters";
+      if-feature "client-base-cfg-parms";
     }
   }
 
@@ -4995,7 +4998,7 @@ module example-bfd-echo {
 <a href="#name-updates-since-rfc-9127" class="section-name selfRef">Updates since RFC 9127</a>
       </h2>
 <p id="appendix-D-1">This version of the draft updates the 'ietf-bfd-types' module
-      to define a new feature called 'client-cfg-parameters' and a
+      to define a new feature called 'client-base-cfg-parms and a
       'if-feature' statement that conditionally includes definition
       of parameters such as 'multiplier' or
       'desired-min-tx-interval'. The feature statement allows
