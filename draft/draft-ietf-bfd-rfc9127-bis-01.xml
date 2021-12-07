@@ -5,7 +5,7 @@
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-00" ipr="trust200902" obsoletes="9127">
+<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-01" ipr="trust200902" obsoletes="9127">
   <front>
     <title abbrev="BFD YANG">YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
     <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
