@@ -5,7 +5,7 @@
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc category="std" docName="draft-ietf-bfd-rfc9127bis-latest" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-latest" ipr="trust200902" obsoletes="9127">
   <front>
     <title abbrev="BFD YANG">YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
     <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
@@ -15,15 +15,6 @@
           <country>Canada</country>
         </postal>
         <email>reshad@yahoo.com</email>
-      </address>
-    </author>
-    <author fullname="Lianshu Zheng" initials="L." role="editor" surname="Zheng">
-      <organization showOnFrontPage="true">Huawei Technologies</organization>
-      <address>
-        <postal>
-          <country>China</country>
-        </postal>
-        <email>veronique_cheng@hotmail.com</email>
       </address>
     </author>
     <author fullname="Mahesh Jethanandani" initials="M." role="editor" surname="Jethanandani">
@@ -37,6 +28,15 @@
           <country>United States of America</country>
         </postal>
         <email>mjethanandani@gmail.com</email>
+      </address>
+    </author>
+    <author fullname="Lianshu Zheng" initials="L." role="editor" surname="Zheng">
+      <organization showOnFrontPage="true">Huawei Technologies</organization>
+      <address>
+        <postal>
+          <country>China</country>
+        </postal>
+        <email>veronique_cheng@hotmail.com</email>
       </address>
     </author>
     <author fullname="Santosh Pallagatti" initials="S." surname="Pallagatti">
@@ -3253,7 +3253,7 @@ module example-bfd-echo {
     <section anchor="updates-since-9127" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.d">
       <name slugifiedName="updates">Updates since RFC 9127</name>
       <t>This version of the draft updates the 'ietf-bfd-types' module
-      to define a new feature called 'client-cfg-parameters' and a
+      to define a new feature called 'client-base-cfg-parms and a
       'if-feature' statement that conditionally includes definition
       of parameters such as 'multiplier' or
       'desired-min-tx-interval'. The feature statement allows
