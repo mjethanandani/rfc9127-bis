@@ -5,7 +5,7 @@
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-01" ipr="trust200902" obsoletes="9127">
+<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-01" ipr="trust200902" updates="9127">
   <front>
     <title abbrev="BFD YANG">YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
     <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
@@ -65,7 +65,7 @@
       <t indent="0" pn="section-abstract-1">This document defines a YANG data model that can be used to configure
       and manage Bidirectional Forwarding Detection (BFD).</t>
       <t indent="0" pn="section-abstract-2">The YANG modules in this document conform to the Network Management
-      Datastore Architecture (NMDA) (RFC 8342).</t>
+      Datastore Architecture (NMDA) (RFC 8342). This document updates YANG Data Model for Bidirectional Forwarding Detection (BFD) (RFC 9127).</t>
     </abstract>
     <boilerplate>
       <section anchor="status-of-memo" numbered="false" removeInRFC="false" toc="exclude" pn="section-boilerplate.1">
@@ -179,9 +179,6 @@
                   </li>
                 </ul>
               </li>
-              <li pn="section-toc.1-1.2.2.11">
-                <t indent="0" pn="section-toc.1-1.2.2.11.1"><xref derivedContent="2.11" format="counter" sectionFormat="of" target="section-2.11"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-iana-bfd-yang-module">IANA BFD YANG Module</xref></t>
-              </li>
               <li pn="section-toc.1-1.2.2.12">
                 <t indent="0" pn="section-toc.1-1.2.2.12.1"><xref derivedContent="2.12" format="counter" sectionFormat="of" target="section-2.12"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-types-yang-module">BFD Types YANG Module</xref></t>
               </li>
@@ -224,11 +221,6 @@
           </li>
           <li pn="section-toc.1-1.5">
             <t indent="0" pn="section-toc.1-1.5.1"><xref derivedContent="5" format="counter" sectionFormat="of" target="section-5"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-iana-considerations">IANA Considerations</xref></t>
-            <ul bare="true" empty="true" indent="2" spacing="compact" pn="section-toc.1-1.5.2">
-              <li pn="section-toc.1-1.5.2.1">
-                <t indent="0" pn="section-toc.1-1.5.2.1.1"><xref derivedContent="5.1" format="counter" sectionFormat="of" target="section-5.1"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-iana-maintained-iana-bfd-ty">IANA-Maintained "iana-bfd-types" Module</xref></t>
-              </li>
-            </ul>
           </li>
           <li pn="section-toc.1-1.7">
             <t indent="0" pn="section-toc.1-1.7.1"><xref derivedContent="Appendix A" format="default" sectionFormat="of" target="section-appendix.a"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-echo-function-configuration">Echo Function Configuration Example</xref></t>
@@ -1044,172 +1036,6 @@ module: ietf-bfd-mpls
           </dl>
         </section>
       </section>
-      <section numbered="true" toc="include" removeInRFC="false" pn="section-2.11">
-        <name slugifiedName="name-iana-bfd-yang-module">IANA BFD YANG Module</name>
-        <t indent="0" pn="section-2.11-1">This YANG module imports definitions from <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.  It
-      references <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/> and <xref target="RFC6428" format="default" sectionFormat="of" derivedContent="RFC6428"/>.</t>
-        <sourcecode name="iana-bfd-types@2021-10-21.yang" type="yang" markers="true" pn="section-2.11-2">
-module iana-bfd-types {
-  yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:iana-bfd-types";
-  prefix iana-bfd-types;
-
-  organization
-    "IANA";
-  contact
-    "Internet Assigned Numbers Authority
-
-     Postal: ICANN
-             12025 Waterfront Drive, Suite 300
-             Los Angeles, CA 90094-2536
-             United States of America
-     Tel:    +1 310 301 5800
-     &lt;mailto:iana@iana.org&gt;";
-  description
-    "This module defines YANG data types for IANA-registered
-     BFD parameters.
-
-     This YANG module is maintained by IANA and reflects the
-     'BFD Diagnostic Codes' and 'BFD Authentication Types'
-     registries.
-
-     Copyright (c) 2021 IETF Trust and the persons identified as
-     authors of the code.  All rights reserved.
-
-     Redistribution and use in source and binary forms, with or
-     without modification, is permitted pursuant to, and subject to
-     the license terms contained in, the Simplified BSD License set
-     forth in Section 4.c of the IETF Trust's Legal Provisions
-     Relating to IETF Documents
-     (https://trustee.ietf.org/license-info).
-
-     This version of this YANG module is part of RFC 9127; see the
-     RFC itself for full legal notices.";
-  reference
-    "RFC 9127: YANG Data Model for Bidirectional Forwarding
-     Detection (BFD)";
-
-  revision 2021-10-21 {
-    description
-      "Initial revision.";
-    reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
-       Detection (BFD)";
-  }
-
-  /*
-   * Type definitions
-   */
-
-  typedef diagnostic {
-    type enumeration {
-      enum none {
-        value 0;
-        description
-          "No Diagnostic.";
-      }
-      enum control-expiry {
-        value 1;
-        description
-          "Control Detection Time Expired.";
-      }
-      enum echo-failed {
-        value 2;
-        description
-          "Echo Function Failed.";
-      }
-      enum neighbor-down {
-        value 3;
-        description
-          "Neighbor Signaled Session Down.";
-      }
-      enum forwarding-reset {
-        value 4;
-        description
-          "Forwarding Plane Reset.";
-      }
-      enum path-down {
-        value 5;
-        description
-          "Path Down.";
-      }
-      enum concatenated-path-down {
-        value 6;
-        description
-          "Concatenated Path Down.";
-      }
-      enum admin-down {
-        value 7;
-        description
-          "Administratively Down.";
-      }
-      enum reverse-concatenated-path-down {
-        value 8;
-        description
-          "Reverse Concatenated Path Down.";
-      }
-      enum mis-connectivity-defect {
-        value 9;
-        description
-          "Mis-connectivity defect.";
-        reference
-          "RFC 5880: Bidirectional Forwarding Detection (BFD)
-           RFC 6428: Proactive Connectivity Verification, Continuity
-           Check, and Remote Defect Indication for the MPLS Transport
-           Profile";
-      }
-    }
-    description
-      "BFD diagnostic codes as defined in RFC 5880.  Values are
-       maintained in the 'BFD Diagnostic Codes' IANA registry.
-       Range is 0 to 31.";
-    reference
-      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
-  }
-
-  typedef auth-type {
-    type enumeration {
-      enum reserved {
-        value 0;
-        description
-          "Reserved.";
-      }
-      enum simple-password {
-        value 1;
-        description
-          "Simple Password.";
-      }
-      enum keyed-md5 {
-        value 2;
-        description
-          "Keyed MD5.";
-      }
-      enum meticulous-keyed-md5 {
-        value 3;
-        description
-          "Meticulous Keyed MD5.";
-      }
-      enum keyed-sha1 {
-        value 4;
-        description
-          "Keyed SHA1.";
-      }
-      enum meticulous-keyed-sha1 {
-        value 5;
-        description
-          "Meticulous Keyed SHA1.";
-      }
-    }
-    description
-      "BFD authentication type as defined in RFC 5880.  Values are
-       maintained in the 'BFD Authentication Types' IANA registry.
-       Range is 0 to 255.";
-    reference
-      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
-  }
-}
-</sourcecode>
-      </section>
 
       <section anchor="BFD-TYPES" numbered="true" toc="include" removeInRFC="false" pn="section-2.12">
         <name slugifiedName="name-bfd-types-yang-module">BFD Types YANG Module</name>
@@ -1226,7 +1052,7 @@ module iana-bfd-types {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-types@2021-12-15.yang"
+<CODE BEGINS> file "ietf-bfd-types@2021-12-21.yang"
 
 module ietf-bfd-types {
   yang-version 1.1;
@@ -1297,7 +1123,7 @@ module ietf-bfd-types {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-15 {
+  revision 2021-12-21 {
     description
       "Updates to add client configuration parameters feature.";
     reference
@@ -1918,7 +1744,12 @@ module ietf-bfd-types {
         <t indent="0" pn="section-2.13-1">This YANG module imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. It also references
         <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.</t>
-        <sourcecode name="ietf-bfd@2021-10-21.yang" type="yang" markers="true" pn="section-2.13-2">
+        <figure align="left">
+          <preamble/>
+
+          <artwork align="left"><![CDATA[
+<CODE BEGINS> file "ietf-bfd@2021-12-21.yang"
+
 module ietf-bfd {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-bfd";
@@ -1927,7 +1758,7 @@ module ietf-bfd {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-routing {
@@ -1940,17 +1771,17 @@ module ietf-bfd {
   organization
     "IETF BFD Working Group";
   contact
-    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
-     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+    "WG Web:   <https://datatracker.ietf.org/wg/bfd/>
+     WG List:  <mailto:rtg-bfd@ietf.org>
 
      Editor:   Reshad Rahman
-               &lt;mailto:reshad@yahoo.com&gt;
+               <mailto:reshad@yahoo.com>
 
      Editor:   Lianshu Zheng
-               &lt;mailto:veronique_cheng@hotmail.com&gt;
+               <mailto:veronique_cheng@hotmail.com>
 
      Editor:   Mahesh Jethanandani
-               &lt;mailto:mjethanandani@gmail.com&gt;";
+               <mailto:mjethanandani@gmail.com>";
   description
     "This module contains the YANG definition for BFD parameters as
      per RFC 5880.
@@ -1972,6 +1803,13 @@ module ietf-bfd {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-21 {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -1996,7 +1834,10 @@ module ietf-bfd {
     }
   }
 }
-</sourcecode>
+
+<CODE ENDS>
+        ]]></artwork>
+        </figure>
       </section>
 
       <section anchor="bfd-ip-single-hop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.14">
@@ -2004,7 +1845,12 @@ module ietf-bfd {
         <t indent="0" pn="section-2.14-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5881" format="default" sectionFormat="of" derivedContent="RFC5881"/>.</t>
-        <sourcecode name="ietf-bfd-ip-sh@2021-10-21.yang" type="yang" markers="true" pn="section-2.14-2">
+        <figure align="left">
+          <preamble/>
+
+          <artwork align="left"><![CDATA[
+<CODE BEGINS> file "ietf-bfd-ip-sh@2021-12-21.yang"
+
 module ietf-bfd-ip-sh {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh";
@@ -2013,13 +1859,13 @@ module ietf-bfd-ip-sh {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-interfaces {
@@ -2042,17 +1888,17 @@ module ietf-bfd-ip-sh {
   organization
     "IETF BFD Working Group";
   contact
-    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
-     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+    "WG Web:   <https://datatracker.ietf.org/wg/bfd/>
+     WG List:  <mailto:rtg-bfd@ietf.org>
 
      Editor:   Reshad Rahman
-               &lt;mailto:reshad@yahoo.com&gt;
+               <mailto:reshad@yahoo.com>
 
      Editor:   Lianshu Zheng
-               &lt;mailto:veronique_cheng@hotmail.com&gt;
+               <mailto:veronique_cheng@hotmail.com>
 
      Editor:   Mahesh Jethanandani
-               &lt;mailto:mjethanandani@gmail.com&gt;";
+               <mailto:mjethanandani@gmail.com>";
   description
     "This module contains the YANG definition for BFD IP single-hop
      as per RFC 5881.
@@ -2075,6 +1921,13 @@ module ietf-bfd-ip-sh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-21 {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -2157,7 +2010,10 @@ module ietf-bfd-ip-sh {
     }
   }
 }
-</sourcecode>
+
+<CODE ENDS>
+        ]]></artwork>
+        </figure>
       </section>
       <section anchor="bfd-ip-multihop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.15">
         <name slugifiedName="name-bfd-ip-multihop-yang-module">BFD IP Multihop YANG Module</name>
@@ -2165,7 +2021,12 @@ module ietf-bfd-ip-sh {
         <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5883" format="default" sectionFormat="of" derivedContent="RFC5883"/>.</t>
-        <sourcecode name="ietf-bfd-ip-mh@2021-10-21.yang" type="yang" markers="true" pn="section-2.15-2">
+        <figure align="left">
+          <preamble/>
+
+          <artwork align="left"><![CDATA[
+<CODE BEGINS> file "ietf-bfd-ip-mh@2021-12-21.yang"
+
 module ietf-bfd-ip-mh {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh";
@@ -2174,13 +2035,13 @@ module ietf-bfd-ip-mh {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-inet-types {
@@ -2198,17 +2059,17 @@ module ietf-bfd-ip-mh {
   organization
     "IETF BFD Working Group";
   contact
-    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
-     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+    "WG Web:   <https://datatracker.ietf.org/wg/bfd/>
+     WG List:  <mailto:rtg-bfd@ietf.org>
 
      Editor:   Reshad Rahman
-               &lt;mailto:reshad@yahoo.com&gt;
+               <mailto:reshad@yahoo.com>
 
      Editor:   Lianshu Zheng
-               &lt;mailto:veronique_cheng@hotmail.com&gt;
+               <mailto:veronique_cheng@hotmail.com>
 
      Editor:   Mahesh Jethanandani
-               &lt;mailto:mjethanandani@gmail.com&gt;";
+               <mailto:mjethanandani@gmail.com>";
   description
     "This module contains the YANG definition for BFD IP multihop
      as per RFC 5883.
@@ -2231,6 +2092,13 @@ module ietf-bfd-ip-mh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-21 {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -2310,14 +2178,22 @@ module ietf-bfd-ip-mh {
     uses bfd-types:notification-parms;
   }
 }
-</sourcecode>
+
+<CODE ENDS>
+        ]]></artwork>
+        </figure>
       </section>
       <section anchor="bfd-over-lag-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.16">
         <name slugifiedName="name-bfd-over-lag-yang-module">BFD-over-LAG YANG Module</name>
         <t indent="0" pn="section-2.16-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. Additionally, it references
         <xref target="RFC7130" format="default" sectionFormat="of" derivedContent="RFC7130"/>.</t>
-        <sourcecode name="ietf-bfd-lag@2021-10-21.yang" type="yang" markers="true" pn="section-2.16-2">
+        <figure align="left">
+          <preamble/>
+
+          <artwork align="left"><![CDATA[
+<CODE BEGINS> file "ietf-bfd-lag@2021-12-21.yang"
+
 module ietf-bfd-lag {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-lag";
@@ -2326,13 +2202,13 @@ module ietf-bfd-lag {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-interfaces {
@@ -2355,17 +2231,17 @@ module ietf-bfd-lag {
   organization
     "IETF BFD Working Group";
   contact
-    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
-     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+    "WG Web:   <https://datatracker.ietf.org/wg/bfd/>
+     WG List:  <mailto:rtg-bfd@ietf.org>
 
      Editor:   Reshad Rahman
-               &lt;mailto:reshad@yahoo.com&gt;
+               <mailto:reshad@yahoo.com>
 
      Editor:   Lianshu Zheng
-               &lt;mailto:veronique_cheng@hotmail.com&gt;
+               <mailto:veronique_cheng@hotmail.com>
 
      Editor:   Mahesh Jethanandani
-               &lt;mailto:mjethanandani@gmail.com&gt;";
+               <mailto:mjethanandani@gmail.com>";
   description
     "This module contains the YANG definition for BFD-over-LAG
      interfaces as per RFC 7130.
@@ -2388,6 +2264,13 @@ module ietf-bfd-lag {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-21 {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -2507,7 +2390,10 @@ module ietf-bfd-lag {
     }
   }
 }
-</sourcecode>
+
+<CODE ENDS>
+        ]]></artwork>
+        </figure>
       </section>
       <section anchor="bfd-over-mpls-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.17">
         <name slugifiedName="name-bfd-over-mpls-yang-module">BFD-over-MPLS YANG Module</name>
@@ -2515,7 +2401,12 @@ module ietf-bfd-lag {
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>.
         Additionally, it references <xref target="RFC5586" format="default" sectionFormat="of" derivedContent="RFC5586"/> and
         <xref target="RFC5884" format="default" sectionFormat="of" derivedContent="RFC5884"/>.</t>
-        <sourcecode name="ietf-bfd-mpls@2021-10-21.yang" type="yang" markers="true" pn="section-2.17-2">
+        <figure align="left">
+          <preamble/>
+
+          <artwork align="left"><![CDATA[
+<CODE BEGINS> file "ietf-bfd-mpls@2021-12-21.yang"
+
 module ietf-bfd-mpls {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-mpls";
@@ -2524,13 +2415,13 @@ module ietf-bfd-mpls {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-inet-types {
@@ -2548,17 +2439,17 @@ module ietf-bfd-mpls {
   organization
     "IETF BFD Working Group";
   contact
-    "WG Web:   &lt;https://datatracker.ietf.org/wg/bfd/&gt;
-     WG List:  &lt;mailto:rtg-bfd@ietf.org&gt;
+    "WG Web:   <https://datatracker.ietf.org/wg/bfd/>
+     WG List:  <mailto:rtg-bfd@ietf.org>
 
      Editor:   Reshad Rahman
-               &lt;mailto:reshad@yahoo.com&gt;
+               <mailto:reshad@yahoo.com>
 
      Editor:   Lianshu Zheng
-               &lt;mailto:veronique_cheng@hotmail.com&gt;
+               <mailto:veronique_cheng@hotmail.com>
 
      Editor:   Mahesh Jethanandani
-               &lt;mailto:mjethanandani@gmail.com&gt;";
+               <mailto:mjethanandani@gmail.com>";
   description
     "This module contains the YANG definition for BFD parameters for
      MPLS LSPs as per RFC 5884.
@@ -2581,6 +2472,13 @@ module ietf-bfd-mpls {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-21 {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -2704,7 +2602,10 @@ module ietf-bfd-mpls {
     }
   }
 }
-</sourcecode>
+
+<CODE ENDS>
+        ]]></artwork>
+        </figure>
       </section>
     </section>
     <section numbered="true" toc="include" removeInRFC="false" pn="section-3">
@@ -3024,29 +2925,109 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         <dt pn="section-5-2.5">XML:</dt>
         <dd pn="section-5-2.6">N/A; the requested URI is an XML namespace.</dd>
       </dl>
-      <t indent="0" pn="section-5-3">This document registers the following YANG modules in the "YANG Module Names"
-      registry <xref target="RFC6020" format="default" sectionFormat="of" derivedContent="RFC6020"/>:</t>
       <dl newline="false" spacing="compact" indent="3" pn="section-5-4">
-        <dt pn="section-5-4.1">Name:</dt>
-        <dd pn="section-5-4.2">ietf-bfd-types</dd>
-        <dt pn="section-5-4.3">Namespace:</dt>
-        <dd pn="section-5-4.4">urn:ietf:params:xml:ns:yang:ietf-bfd-types</dd>
-        <dt pn="section-5-4.5">Prefix:</dt>
-        <dd pn="section-5-4.6">bfd-types</dd>
-        <dt pn="section-5-4.7">Reference:</dt>
-        <dd pn="section-5-4.8">RFC XXXX</dd>
+         <dt pn="section-5-4.1">URI:</dt>
+         <dd pn="section-5-4.2">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dt pn="section-5-4.3">Registrant Contact:</dt>
+         <dd pn="section-5-4.4">The IESG.</dd>
+         <dt pn="section-5-4.5">XML:</dt>
+         <dd pn="section-5-4.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-5">
+         <dt pn="section-5-5.1">URI:</dt>
+         <dd pn="section-5-5.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
+         <dt pn="section-5-5.3">Registrant Contact:</dt>
+         <dd pn="section-5-5.4">The IESG.</dd>
+         <dt pn="section-5-5.5">XML:</dt>
+         <dd pn="section-5-5.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-6">
+         <dt pn="section-5-6.1">URI:</dt>
+         <dd pn="section-5-6.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
+         <dt pn="section-5-6.3">Registrant Contact:</dt>
+         <dd pn="section-5-6.4">The IESG.</dd>
+         <dt pn="section-5-6.5">XML:</dt>
+         <dd pn="section-5-6.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-7">
+         <dt pn="section-5-7.1">URI:</dt>
+         <dd pn="section-5-7.2">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
+         <dt pn="section-5-7.3">Registrant Contact:</dt>
+         <dd pn="section-5-7.4">The IESG.</dd>
+         <dt pn="section-5-7.5">XML:</dt>
+         <dd pn="section-5-7.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-8">
+         <dt pn="section-5-8.1">URI:</dt>
+         <dd pn="section-5-8.2">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
+         <dt pn="section-5-8.3">Registrant Contact:</dt>
+         <dd pn="section-5-8.4">The IESG.</dd>
+         <dt pn="section-5-8.5">XML:</dt>
+         <dd pn="section-5-8.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <t indent="0" pn="section-5-3">This document registers the following YANG modules in the "YANG Module Names"
+      registry <xref target="RFC6020" format="default" sectionFormat="of" derivedContent="RFC6020"/>:</t>
+      <dl newline="false" spacing="compact" indent="3" pn="section-5-9">
+        <dt pn="section-5-9.1">Name:</dt>
+        <dd pn="section-5-9.2">ietf-bfd-types</dd>
+        <dt pn="section-5-9.3">Namespace:</dt>
+        <dd pn="section-5-9.4">urn:ietf:params:xml:ns:yang:ietf-bfd-types</dd>
+        <dt pn="section-5-9.5">Prefix:</dt>
+        <dd pn="section-5-9.6">bfd-types</dd>
+        <dt pn="section-5-9.7">Reference:</dt>
+        <dd pn="section-5-9.8">RFC XXXX</dd>
       </dl>
-      <section numbered="true" toc="include" removeInRFC="false" pn="section-5.1">
-        <name slugifiedName="name-iana-maintained-iana-bfd-ty">IANA-Maintained "iana-bfd-types" Module</name>
-        <t indent="0" pn="section-5.1-1">This document defines the initial version of the IANA-maintained
-        "iana-bfd-types" YANG module.</t>
-        <t indent="0" pn="section-5.1-2">The "iana-bfd-types" YANG module mirrors the "BFD Diagnostic Codes"
-        and "BFD Authentication Types" registries at
-        <eref target="https://www.iana.org/assignments/bfd-parameters/" brackets="angle"/>. Whenever
-        these registries change, IANA must update the "iana-bfd-types" YANG
-        module.</t>
-      </section>
-    </section>
+      <dl newline="false" spacing="compact" indent="3" pn="section-5-12">
+         <dt pn="section-5-12.1">Name:</dt>
+         <dd pn="section-5-12.2">ietf-bfd</dd>
+         <dt pn="section-5-12.3">Namespace:</dt>
+         <dd pn="section-5-12.4">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dt pn="section-5-12.5">Prefix:</dt>
+         <dd pn="section-5-12.6">bfd</dd>
+         <dt pn="section-5-12.7">Reference:</dt>
+         <dd pn="section-5-12.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-13">
+         <dt pn="section-5-13.1">Name:</dt>
+         <dd pn="section-5-13.2">ietf-bfd-ip-sh</dd>
+         <dt pn="section-5-13.3">Namespace:</dt>
+         <dd pn="section-5-13.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
+         <dt pn="section-5-13.5">Prefix:</dt>
+         <dd pn="section-5-13.6">bfd-ip-sh</dd>
+         <dt pn="section-5-13.7">Reference:</dt>
+         <dd pn="section-5-13.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-14">
+         <dt pn="section-5-14.1">Name:</dt>
+         <dd pn="section-5-14.2">ietf-bfd-ip-mh</dd>
+         <dt pn="section-5-14.3">Namespace:</dt>
+         <dd pn="section-5-14.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
+         <dt pn="section-5-14.5">Prefix:</dt>
+         <dd pn="section-5-14.6">bfd-ip-mh</dd>
+         <dt pn="section-5-14.7">Reference:</dt>
+         <dd pn="section-5-14.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-15">
+         <dt pn="section-5-15.1">Name:</dt>
+         <dd pn="section-5-15.2">ietf-bfd-lag</dd>
+         <dt pn="section-5-15.3">Namespace:</dt>
+         <dd pn="section-5-15.4">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
+         <dt pn="section-5-15.5">Prefix:</dt>
+         <dd pn="section-5-15.6">bfd-lag</dd>
+         <dt pn="section-5-15.7">Reference:</dt>
+         <dd pn="section-5-15.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-16">
+         <dt pn="section-5-16.1">Name:</dt>
+         <dd pn="section-5-16.2">ietf-bfd-mpls</dd>
+         <dt pn="section-5-16.3">Namespace:</dt>
+         <dd pn="section-5-16.4">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
+         <dt pn="section-5-16.5">Prefix:</dt>
+         <dd pn="section-5-16.6">bfd-mpls</dd>
+         <dt pn="section-5-16.7">Reference:</dt>
+         <dd pn="section-5-16.8">RFC XXXX</dd>
+       </dl>
+     </section>
   </middle>
   <back>
     <references pn="section-6">
@@ -3484,28 +3465,6 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
           </front>
           <seriesInfo name="RFC" value="3031"/>
           <seriesInfo name="DOI" value="10.17487/RFC3031"/>
-        </reference>
-        <reference anchor="RFC6428" target="https://www.rfc-editor.org/info/rfc6428" quoteTitle="true" derivedAnchor="RFC6428">
-          <front>
-            <title>Proactive Connectivity Verification, Continuity Check, and Remote Defect Indication for the MPLS Transport Profile</title>
-            <author initials="D." surname="Allan" fullname="D. Allan" role="editor">
-              <organization showOnFrontPage="true"/>
-            </author>
-            <author initials="G." surname="Swallow" fullname="G. Swallow" role="editor">
-              <organization showOnFrontPage="true"/>
-            </author>
-            <author initials="J." surname="Drake" fullname="J. Drake" role="editor">
-              <organization showOnFrontPage="true"/>
-            </author>
-            <date year="2011" month="November"/>
-            <abstract>
-              <t indent="0">Continuity Check, Proactive Connectivity Verification, and Remote Defect Indication functionalities are required for MPLS Transport Profile (MPLS-TP) Operations, Administration, and Maintenance (OAM).</t>
-              <t indent="0">Continuity Check monitors a Label Switched Path for any loss of continuity defect.  Connectivity Verification augments Continuity Check in order to provide confirmation that the desired source is connected to the desired sink.  Remote Defect Indication enables an end point to report, to its associated end point, a fault or defect condition that it detects on a pseudowire, Label Switched Path, or Section.</t>
-              <t indent="0">This document specifies specific extensions to Bidirectional Forwarding Detection (BFD) and methods for proactive Continuity Check, Continuity Verification, and Remote Defect Indication for MPLS-TP pseudowires, Label Switched Paths, and Sections using BFD as extended by this memo.  [STANDARDS-TRACK]</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="6428"/>
-          <seriesInfo name="DOI" value="10.17487/RFC6428"/>
         </reference>
         <reference anchor="RFC8342" target="https://www.rfc-editor.org/info/rfc8342" quoteTitle="true" derivedAnchor="RFC8342">
           <front>

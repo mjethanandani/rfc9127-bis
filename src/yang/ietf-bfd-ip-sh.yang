@@ -6,13 +6,13 @@ module ietf-bfd-ip-sh {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-interfaces {
@@ -68,6 +68,13 @@ module ietf-bfd-ip-sh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision YYYY-MM-DD {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
