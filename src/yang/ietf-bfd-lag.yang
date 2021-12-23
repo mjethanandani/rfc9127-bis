@@ -70,7 +70,7 @@ module ietf-bfd-lag {
 
   revision YYYY-MM-DD {
     description
-      "Updates to add client configuration parameters feature.";
+      "Updating reference to RFC XXXX.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD).";

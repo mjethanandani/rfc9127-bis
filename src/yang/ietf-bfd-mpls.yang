@@ -65,7 +65,7 @@ module ietf-bfd-mpls {
 
   revision YYYY-MM-DD {
     description
-      "Updates to add client configuration parameters feature.";
+      "Updating reference to RFC XXXX.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD).";

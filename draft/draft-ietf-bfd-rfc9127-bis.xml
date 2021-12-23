@@ -234,7 +234,7 @@
             <t indent="0" pn="section-toc.1-1.8.1"><xref derivedContent="" format="none" sectionFormat="of" target="section-appendix.b"/><xref derivedContent="" format="title" sectionFormat="of" target="name-acknowledgments">Acknowledgments</xref></t>
           </li>
           <li pn="section-toc.1-1.9">
-            <t indent="0" pn="section-toc.1-1.9.1"><xref derivedContent="" format="none" sectionFormat="of" target="section-appendix.c"/><xref derivedContent="" format="title" sectionFormat="of" target="name-authors-addresses">Authors' Addresses</xref></t>
+            <t indent="0" pn="section-toc.1-1.9.1"><xref derivedContent="" format="none" sectionFormat="of" target="section-appendix.c"/><xref derivedContent="" format="title" sectionFormat="of" target="updates-since-rfc-9127">Updates since RFC 9127</xref></t>
           </li>
         </ul>
       </section>
@@ -2271,56 +2271,7 @@ module example-bfd-echo {
       <contact fullname="Jürgen Schönwälder"/>, who was instrumental in improving the YANG
       modules.</t>
     </section>
-    <section anchor="authors-addresses" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.c">
-      <name slugifiedName="name-authors-addresses">Authors' Addresses</name>
-      <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
-        <organization showOnFrontPage="true"/>
-        <address>
-          <postal>
-            <country>Canada</country>
-          </postal>
-          <email>reshad@yahoo.com</email>
-        </address>
-      </author>
-      <author fullname="Lianshu Zheng" initials="L." role="editor" surname="Zheng">
-        <organization showOnFrontPage="true">Huawei Technologies</organization>
-        <address>
-          <postal>
-            <country>China</country>
-          </postal>
-          <email>veronique_cheng@hotmail.com</email>
-        </address>
-      </author>
-      <author fullname="Mahesh Jethanandani" initials="M." role="editor" surname="Jethanandani">
-        <organization showOnFrontPage="true">Xoriant Corporation</organization>
-        <address>
-          <postal>
-            <street>1248 Reamwood Ave</street>
-            <city>Sunnyvale</city>
-            <region>California</region>
-            <code>94089</code>
-            <country>United States of America</country>
-          </postal>
-          <email>mjethanandani@gmail.com</email>
-        </address>
-      </author>
-      <author fullname="Santosh Pallagatti" initials="S." surname="Pallagatti">
-        <organization showOnFrontPage="true">VMware</organization>
-        <address>
-          <postal>
-            <country>India</country>
-          </postal>
-          <email>santosh.pallagatti@gmail.com</email>
-        </address>
-      </author>
-      <author fullname="Greg Mirsky" initials="G." surname="Mirsky">
-        <organization showOnFrontPage="true">Ericsson</organization>
-        <address>
-          <email>gregimirsky@gmail.com</email>
-        </address>
-      </author>
-    </section>
-    <section anchor="updates-since-9127" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.d">
+    <section anchor="updates-since-rfc-9127" numbered="false" removeInRFC="false" toc="include" pn="section-appendix.c">
       <name slugifiedName="updates">Updates since RFC 9127</name>
       <t>This version of the draft updates the 'ietf-bfd-types' module
       to define a new feature called 'client-base-cfg-parms and a
