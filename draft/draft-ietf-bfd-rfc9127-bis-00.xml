@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding="utf-8"?>
-<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 <?rfc toc="yes"?>
 <?rfc tocompact="no"?>
 <?rfc tocdepth="6"?>
@@ -227,6 +226,17 @@
             <ul bare="true" empty="true" indent="2" spacing="compact" pn="section-toc.1-1.5.2">
               <li pn="section-toc.1-1.5.2.1">
                 <t indent="0" pn="section-toc.1-1.5.2.1.1"><xref derivedContent="5.1" format="counter" sectionFormat="of" target="section-5.1"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-iana-maintained-iana-bfd-ty">IANA-Maintained "iana-bfd-types" Module</xref></t>
+              </li>
+            </ul>
+          </li>
+          <li pn="section-toc.1-1.6">
+            <t indent="0" pn="section-toc.1-1.6.1"><xref derivedContent="6" format="counter" sectionFormat="of" target="section-6"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-references">References</xref></t>
+            <ul bare="true" empty="true" indent="2" spacing="compact" pn="section-toc.1-1.6.2">
+              <li pn="section-toc.1-1.6.2.1">
+                <t indent="0" pn="section-toc.1-1.6.2.1.1"><xref derivedContent="6.1" format="counter" sectionFormat="of" target="section-6.1"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-normative-references">Normative References</xref></t>
+              </li>
+              <li pn="section-toc.1-1.6.2.2">
+                <t indent="0" pn="section-toc.1-1.6.2.2.1"><xref derivedContent="6.2" format="counter" sectionFormat="of" target="section-6.2"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-informative-references">Informative References</xref></t>
               </li>
             </ul>
           </li>
@@ -3159,7 +3169,9 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
   </middle>
   <back>
     <references pn="section-6">
+      <name slugifiedName="name-references">References</name>
       <references pn="section-6.1">
+	<name slugifiedName="name-normative-references">Normative References</name>
         <reference anchor="RFC3688" target="https://www.rfc-editor.org/info/rfc3688" quoteTitle="true" derivedAnchor="RFC3688">
           <front>
             <title>The IETF XML Registry</title>
@@ -3574,6 +3586,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         </reference>
       </references>
       <references pn="section-6.2">
+        <name slugifiedName="name-informative-references">Informative References</name>
         <reference anchor="RFC3031" target="https://www.rfc-editor.org/info/rfc3031" quoteTitle="true" derivedAnchor="RFC3031">
           <front>
             <title>Multiprotocol Label Switching Architecture</title>
