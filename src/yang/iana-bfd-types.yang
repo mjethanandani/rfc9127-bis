@@ -38,6 +38,13 @@ module iana-bfd-types {
     "RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision YYYY-MM-DD {
+    description
+      "Updates to add client configuration parameters feature.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";

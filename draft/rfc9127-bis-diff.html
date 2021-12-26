@@ -10,7 +10,7 @@
 <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <meta http-equiv="Content-Style-Type" content="text/css" /> 
-  <title>Diff: rfc9127.txt - draft-ietf-bfd-rfc9127-00.txt</title> 
+  <title>Diff: draft-ietf-bfd-rfc9127-bis.txt - draft-ietf-bfd-rfc9127-bis-01.txt</title> 
   <style type="text/css"> 
     body    { margin: 0.4ex; margin-right: auto; } 
     tr      { } 
@@ -90,25 +90,25 @@ document.onkeydown = function(e) {
 </head> 
 <body > 
   <table border="0" cellpadding="0" cellspacing="0"> 
-  <tr id="part-1" bgcolor="orange"><th></th><th>&nbsp;rfc9127.txt&nbsp;</th><th> </th><th>&nbsp;<a href="https://tools.ietf.org/html/draft-ietf-bfd-rfc9127-00.txt" style="color:#008">draft-ietf-bfd-rfc9127-00.txt</a>&nbsp;<a href="/rfcdiff?url1=draft-ietf-bfd-rfc9127-00.txt" style="color:#008; text-decoration:none;">&gt;</a></th><th></th></tr> 
+  <tr id="part-1" bgcolor="orange"><th></th><th><a href="/rfcdiff?url2=draft-ietf-bfd-rfc9127-bis.txt" style="color:#008; text-decoration:none;">&lt;</a>&nbsp;<a href="https://tools.ietf.org/html/draft-ietf-bfd-rfc9127-bis.txt" style="color:#008">draft-ietf-bfd-rfc9127-bis.txt</a>&nbsp;</th><th> </th><th>&nbsp;<a href="https://tools.ietf.org/html/draft-ietf-bfd-rfc9127-bis-01.txt" style="color:#008">draft-ietf-bfd-rfc9127-bis-01.txt</a>&nbsp;<a href="/rfcdiff?url1=draft-ietf-bfd-rfc9127-bis-01.txt" style="color:#008; text-decoration:none;">&gt;</a></th><th></th></tr> 
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Network Working Group                                     R. Rahman, Ed.</td><td> </td><td class="right">Network Working Group                                     R. Rahman, Ed.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Internet-Draft</td><td> </td><td class="right">Internet-Draft</td><td class="lineno"></td></tr>
       <tr id="diff0001"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">Internet Engineering Task Force (IETF)</span>                    R. Rahman, Ed.</td><td> </td><td class="rblock"><span class="insert">Network Working Group</span>                                     R. Rahman, Ed.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">Request for Comments: 9127</span></td><td> </td><td class="rblock"><span class="insert">Internet-Draft</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">Category:</span> Standards Track                                  L. Zheng, Ed.</td><td> </td><td class="rblock"><span class="insert">Intended status:</span> Standards Track                           L. Zheng, Ed.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">ISSN: 2070-1721</span>                                      Huawei Technologies</td><td> </td><td class="rblock"><span class="insert">Expires: 4 June 2022</span>                                 Huawei Technologies</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">                                                    M. Jethanandani, Ed.</td><td> </td><td class="right">                                                    M. Jethanandani, Ed.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">                                                     Xoriant Corporation</td><td> </td><td class="right">                                                     Xoriant Corporation</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">Intended status: Standards Track                    <span class="delete">M. Jethanandani, Ed.</span></td><td> </td><td class="rblock"><span class="insert">Obsoletes: 9127 (if approved)                       M. Jethanandani, Ed.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">Expires: <span class="delete">9</span> June 2022                                 <span class="delete">Xoriant Corporation</span></td><td> </td><td class="rblock">Intended status: Standards Track                     <span class="insert">Xoriant Corporation</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">                                                           L. Zheng, Ed.</td><td> </td><td class="rblock">Expires: <span class="insert">10</span> June 2022                                      L. Zheng, Ed.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                                                     Huawei Technologies</td><td> </td><td class="right">                                                     Huawei Technologies</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">                                                           S. Pallagatti</td><td> </td><td class="right">                                                           S. Pallagatti</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">                                                                  VMware</td><td> </td><td class="right">                                                                  VMware</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">                                                               G. Mirsky</td><td> </td><td class="right">                                                               G. Mirsky</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">                                                                Ericsson</td><td> </td><td class="right">                                                                Ericsson</td><td class="lineno"></td></tr>
       <tr id="diff0002"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">                                                         <span class="delete">   Octo</span>ber 2021</td><td> </td><td class="rblock">                                                         <span class="insert">1 Decem</span>ber 2021</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">                                                         <span class="delete">6</span> December 2021</td><td> </td><td class="rblock">                                                         <span class="insert">7</span> December 2021</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">      YANG Data Model for Bidirectional Forwarding Detection (BFD)</td><td> </td><td class="right">      YANG Data Model for Bidirectional Forwarding Detection (BFD)</td><td class="lineno"></td></tr>
       <tr id="diff0003"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                    draft-ietf-bfd-rfc9127bis-latest</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">                     draft-ietf-bfd-rfc9127-bis-0<span class="delete">0</span></td><td> </td><td class="rblock">                     draft-ietf-bfd-rfc9127-bis-0<span class="insert">1</span></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">Abstract</td><td> </td><td class="right">Abstract</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
@@ -120,24 +120,19 @@ document.onkeydown = function(e) {
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">Status of This Memo</td><td> </td><td class="right">Status of This Memo</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-2" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-2"><em> page 1, line 41<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-2"><em> page 1, line 41<span class="hide"> &para;</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Internet-Drafts are working documents of the Internet Engineering</td><td> </td><td class="right">   Internet-Drafts are working documents of the Internet Engineering</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Task Force (IETF).  Note that other groups may also distribute</td><td> </td><td class="right">   Task Force (IETF).  Note that other groups may also distribute</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   working documents as Internet-Drafts.  The list of current Internet-</td><td> </td><td class="right">   working documents as Internet-Drafts.  The list of current Internet-</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Drafts is at https://datatracker.ietf.org/drafts/current/.</td><td> </td><td class="right">   Drafts is at https://datatracker.ietf.org/drafts/current/.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Internet-Drafts are draft documents valid for a maximum of six months</td><td> </td><td class="right">   Internet-Drafts are draft documents valid for a maximum of six months</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   and may be updated, replaced, or obsoleted by other documents at any</td><td> </td><td class="right">   and may be updated, replaced, or obsoleted by other documents at any</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   time.  It is inappropriate to use Internet-Drafts as reference</td><td> </td><td class="right">   time.  It is inappropriate to use Internet-Drafts as reference</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   material or to cite them other than as "work in progress."</td><td> </td><td class="right">   material or to cite them other than as "work in progress."</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr id="diff0004"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   This is <span class="delete">an Internet Standards Track document.</span></td><td> </td><td class="rblock">   This <span class="insert">Internet-Draft</span> is <span class="insert">submitted in full conformance with the</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   provisions of BCP 78 and BCP 79.</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0005"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   <span class="delete">This document is a product</span> of the Internet Engineering Task Force</td><td> </td><td class="rblock">   <span class="insert">Internet-Drafts are working documents</span> of the Internet Engineering</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   (IETF).  <span class="delete">It represents the consensus</span> of <span class="delete">the IETF community.  It has</span></td><td> </td><td class="rblock">   Task Force (IETF).  <span class="insert">Note that other groups may also distribute</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">   received public review and has been approved for publication by the</span></td><td> </td><td class="rblock"><span class="insert">   working documents as Internet-Drafts.  The list</span> of <span class="insert">current Internet-</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">   Internet Engineering Steering Group (IESG).  Further information on</span></td><td> </td><td class="rblock"><span class="insert">   Drafts</span> is <span class="insert">at https://datatracker.ietf.org/drafts/current/.</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"><span class="delete">   Internet Standards</span> is <span class="delete">available in Section 2 of RFC 7841.</span></td><td> </td><td class="rblock"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0006"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   <span class="delete">Information about the current status</span> of <span class="delete">this document, any errata,</span></td><td> </td><td class="rblock">   <span class="insert">Internet-Drafts are draft documents valid for a maximum</span> of <span class="insert">six months</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   and <span class="delete">how to provide feedback on it</span> may be <span class="delete">obtained</span> at</td><td> </td><td class="rblock">   and may be <span class="insert">updated, replaced, or obsoleted by other documents</span> at <span class="insert">any</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   <span class="delete">https://www.rfc-editor.org/info/rfc9127.</span></td><td> </td><td class="rblock"><span class="insert">   time.  It is inappropriate to use Internet-Drafts as reference</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   material or to cite them other than as "work in progress."</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   This Internet-Draft will expire on 4 June 2022.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   This Internet-Draft will expire on <span class="delete">9</span> June 2022.</td><td> </td><td class="rblock">   This Internet-Draft will expire on <span class="insert">10</span> June 2022.</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">Copyright Notice</td><td> </td><td class="right">Copyright Notice</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
@@ -145,76 +140,11 @@ document.onkeydown = function(e) {
       <tr><td class="lineno"></td><td class="left">   document authors.  All rights reserved.</td><td> </td><td class="right">   document authors.  All rights reserved.</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">   This document is subject to BCP 78 and the IETF Trust's Legal</td><td> </td><td class="right">   This document is subject to BCP 78 and the IETF Trust's Legal</td><td class="lineno"></td></tr>
-      <tr id="diff0007"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   Provisions Relating to IETF Documents</td><td> </td><td class="rblock">   Provisions Relating to IETF Documents <span class="insert">(https://trustee.ietf.org/</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   <span class="delete">(https://trustee.ietf.org/license-info)</span> in effect on the date of</td><td> </td><td class="rblock"><span class="insert">   license-info)</span> in effect on the date of publication of this document.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   publication of this document.  Please review these documents</td><td> </td><td class="rblock">   Please review these documents carefully, as they describe your rights</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   carefully, as they describe your rights and restrictions with respect</td><td> </td><td class="rblock">   and restrictions with respect to this document.  Code Components</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   to this document.  Code Components extracted from this document must</td><td> </td><td class="rblock">   extracted from this document must include <span class="insert">Revised</span> BSD License text as</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   include <span class="delete">Simplified</span> BSD License text as described in Section 4.e of</td><td> </td><td class="rblock">   described in Section 4.e of the Trust Legal Provisions and are</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   the Trust Legal Provisions and are provided without warranty as</td><td> </td><td class="rblock">   provided without warranty as described in the <span class="insert">Revised</span> BSD License.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   described in the <span class="delete">Simplified</span> BSD License.</td><td> </td><td class="rblock"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Provisions Relating to IETF Documents (https://trustee.ietf.org/</td><td> </td><td class="right">   Provisions Relating to IETF Documents (https://trustee.ietf.org/</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   license-info) in effect on the date of publication of this document.</td><td> </td><td class="right">   license-info) in effect on the date of publication of this document.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Please review these documents carefully, as they describe your rights</td><td> </td><td class="right">   Please review these documents carefully, as they describe your rights</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">Table of Contents</td><td> </td><td class="right">Table of Contents</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0008"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   1.  Introduction</td><td> </td><td class="rblock">   1.  Introduction  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . . .   3</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     1.1.  Tree Diagrams</td><td> </td><td class="rblock">     1.1.  Tree Diagrams <span class="insert">. . . . . . . . . . . . . . . . . . . . . .   4</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   2.  Design of the Data Model</td><td> </td><td class="rblock">   2.  Design of the Data Model  <span class="insert">. . . . . . . . . . . . . . . . . .   4</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.1.  Design of the Configuration Model</td><td> </td><td class="rblock">     2.1.  Design of the Configuration Model <span class="insert">. . . . . . . . . . . .   5</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.1.1.  Common BFD Configuration Parameters</td><td> </td><td class="rblock">       2.1.1.  Common BFD Configuration Parameters <span class="insert">. . . . . . . . .   6</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.1.2.  Single-Hop IP</td><td> </td><td class="rblock">       2.1.2.  Single-Hop IP <span class="insert">. . . . . . . . . . . . . . . . . . . .   6</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.1.3.  Multihop IP</td><td> </td><td class="rblock">       2.1.3.  Multihop IP <span class="insert">. . . . . . . . . . . . . . . . . . . . .   7</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.1.4.  MPLS Label Switched Paths</td><td> </td><td class="rblock">       2.1.4.  MPLS Label Switched Paths <span class="insert">. . . . . . . . . . . . . .   7</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.1.5.  Link Aggregation Groups</td><td> </td><td class="rblock">       2.1.5.  Link Aggregation Groups <span class="insert">. . . . . . . . . . . . . . .   8</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.2.  Design of the Operational State Model</td><td> </td><td class="rblock">     2.2.  Design of the Operational State Model <span class="insert">. . . . . . . . . .   8</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.3.  Notifications</td><td> </td><td class="rblock">     2.3.  Notifications <span class="insert">. . . . . . . . . . . . . . . . . . . . . .   9</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.4.  RPC Operations</td><td> </td><td class="rblock">     2.4.  RPC Operations  <span class="insert">. . . . . . . . . . . . . . . . . . . . .   9</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.5.  BFD Top-Level Hierarchy</td><td> </td><td class="rblock">     2.5.  BFD Top-Level Hierarchy <span class="insert">. . . . . . . . . . . . . . . . .   9</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.6.  BFD IP Single-Hop Hierarchy</td><td> </td><td class="rblock">     2.6.  BFD IP Single-Hop Hierarchy <span class="insert">. . . . . . . . . . . . . . .   9</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.7.  BFD IP Multihop Hierarchy</td><td> </td><td class="rblock">     2.7.  BFD IP Multihop Hierarchy <span class="insert">. . . . . . . . . . . . . . . .  11</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.8.  BFD-over-LAG Hierarchy</td><td> </td><td class="rblock">     2.8.  BFD-over-LAG Hierarchy  <span class="insert">. . . . . . . . . . . . . . . . .  13</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.9.  BFD-over-MPLS-LSPs Hierarchy</td><td> </td><td class="rblock">     2.9.  BFD-over-MPLS-LSPs Hierarchy  <span class="insert">. . . . . . . . . . . . . .  16</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.10. Interaction with Other YANG Modules</td><td> </td><td class="rblock">     2.10. Interaction with Other YANG Modules <span class="insert">. . . . . . . . . . .  19</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.10.1.  "ietf-interfaces" Module</td><td> </td><td class="rblock">       2.10.1.  "ietf-interfaces" Module <span class="insert">. . . . . . . . . . . . . .  19</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.10.2.  "ietf-ip" Module</td><td> </td><td class="rblock">       2.10.2.  "ietf-ip" Module <span class="insert">. . . . . . . . . . . . . . . . . .  19</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       2.10.3.  "ietf-mpls" Module</td><td> </td><td class="rblock">       2.10.3.  "ietf-mpls" Module <span class="insert">. . . . . . . . . . . . . . . . .  19</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.11. IANA BFD YANG Module</td><td> </td><td class="rblock">     2.11. IANA BFD YANG Module  <span class="insert">. . . . . . . . . . . . . . . . . .  20</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.12. BFD Types YANG Module</td><td> </td><td class="rblock">     2.12. BFD Types YANG Module <span class="insert">. . . . . . . . . . . . . . . . . .  23</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.13. BFD Top-Level YANG Module</td><td> </td><td class="rblock">     2.13. BFD Top-Level YANG Module <span class="insert">. . . . . . . . . . . . . . . .  38</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.14. BFD IP Single-Hop YANG Module</td><td> </td><td class="rblock">     2.14. BFD IP Single-Hop YANG Module <span class="insert">. . . . . . . . . . . . . .  39</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.15. BFD IP Multihop YANG Module</td><td> </td><td class="rblock">     2.15. BFD IP Multihop YANG Module <span class="insert">. . . . . . . . . . . . . . .  43</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.16. BFD-over-LAG YANG Module</td><td> </td><td class="rblock">     2.16. BFD-over-LAG YANG Module  <span class="insert">. . . . . . . . . . . . . . . .  46</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     2.17. BFD-over-MPLS YANG Module</td><td> </td><td class="rblock">     2.17. BFD-over-MPLS YANG Module <span class="insert">. . . . . . . . . . . . . . . .  50</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   3.  Data Model Examples</td><td> </td><td class="rblock">   3.  Data Model Examples <span class="insert">. . . . . . . . . . . . . . . . . . . . .  54</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     3.1.  IP Single-Hop</td><td> </td><td class="rblock">     3.1.  IP Single-Hop <span class="insert">. . . . . . . . . . . . . . . . . . . . . .  54</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     3.2.  IP Multihop</td><td> </td><td class="rblock">     3.2.  IP Multihop <span class="insert">. . . . . . . . . . . . . . . . . . . . . . .  55</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     3.3.  LAG</td><td> </td><td class="rblock">     3.3.  LAG <span class="insert">. . . . . . . . . . . . . . . . . . . . . . . . . . .  56</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     3.4.  MPLS</td><td> </td><td class="rblock">     3.4.  MPLS  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . . . . .  57</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   4.  Security Considerations</td><td> </td><td class="rblock">   4.  Security Considerations <span class="insert">. . . . . . . . . . . . . . . . . . .  58</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   5.  IANA Considerations</td><td> </td><td class="rblock">   5.  IANA Considerations <span class="insert">. . . . . . . . . . . . . . . . . . . . .  62</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     5.1.  IANA-Maintained "iana-bfd-types" Module</td><td> </td><td class="rblock">     5.1.  IANA-Maintained "iana-bfd-types" Module <span class="insert">. . . . . . . . .  64</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   6.  References</td><td> </td><td class="rblock">   6.  References  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . . . .  64</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     6.1.  <span class="delete">Normative</span> References</td><td> </td><td class="rblock">     6.1.  References  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . .  64</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     6.2.  <span class="delete">Informative</span> References</td><td> </td><td class="rblock">     6.2.  References  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . .  66</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   Appendix A.  Echo Function Configuration Example</td><td> </td><td class="rblock">   Appendix A.  Echo Function Configuration Example  <span class="insert">. . . . . . . .  67</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">     A.1.  Example YANG Module for BFD Echo Function Configuration</td><td> </td><td class="rblock">     A.1.  Example YANG Module for BFD Echo Function</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   Acknowledgments</td><td> </td><td class="rblock">           Configuration <span class="insert">. . . . . . . . . . . . . . . . . . . . . .  67</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   Authors' Addresses</td><td> </td><td class="rblock">   Acknowledgments <span class="insert">. . . . . . . . . . . . . . . . . . . . . . . . .  69</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   Authors' Addresses  <span class="insert">. . . . . . . . . . . . . . . . . . . . . . .  70</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Updates since RFC 9127  . . . . . . . . . . . . . . . . . . . . .  70</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">1.  Introduction</td><td> </td><td class="right">1.  Introduction</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   This document defines a YANG data model that can be used to configure</td><td> </td><td class="right">   This document defines a YANG data model that can be used to configure</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   and manage Bidirectional Forwarding Detection (BFD) [RFC5880].  BFD</td><td> </td><td class="right">   and manage Bidirectional Forwarding Detection (BFD) [RFC5880].  BFD</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   is a network protocol that is used for liveness detection of</td><td> </td><td class="right">   is a network protocol that is used for liveness detection of</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   arbitrary paths between systems.  Some examples of different types of</td><td> </td><td class="right">   arbitrary paths between systems.  Some examples of different types of</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   paths over which we have BFD are as follows:</td><td> </td><td class="right">   paths over which we have BFD are as follows:</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   1.  Two systems directly connected via IP.  This is known as BFD over</td><td> </td><td class="right">   1.  Two systems directly connected via IP.  This is known as BFD over</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-2" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-2"><em> line 1084<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-2"><em> page 23, line 39<span class="hide"> &para;</span></em></a></th><td></td></tr>
+      <tr id="part-3" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-3"><em> page 23, line 39<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-3"><em> page 23, line 39<span class="hide"> &para;</span></em></a></th><td></td></tr>
       <tr><td class="lineno"></td><td class="left">   }</td><td> </td><td class="right">   }</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">   &lt;CODE ENDS&gt;</td><td> </td><td class="right">   &lt;CODE ENDS&gt;</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
@@ -225,8 +155,8 @@ document.onkeydown = function(e) {
       <tr><td class="lineno"></td><td class="left">   [RFC5884], and [RFC7130], as well as the "control-plane-protocol"</td><td> </td><td class="right">   [RFC5884], and [RFC7130], as well as the "control-plane-protocol"</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">   identity from [RFC8349].</td><td> </td><td class="right">   identity from [RFC8349].</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0009"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">   &lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-1<span class="delete">0-2</span>1.yang"</td><td> </td><td class="rblock">   &lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-1<span class="insert">2-0</span>1.yang"</td><td class="lineno"></td></tr>
+      <tr id="diff0005"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   &lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-0<span class="delete">6</span>.yang"</td><td> </td><td class="rblock">   &lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-0<span class="insert">7</span>.yang"</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">   module ietf-bfd-types {</td><td> </td><td class="right">   module ietf-bfd-types {</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">     yang-version 1.1;</td><td> </td><td class="right">     yang-version 1.1;</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">     namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-types";</td><td> </td><td class="right">     namespace "urn:ietf:params:xml:ns:yang:ietf-bfd-types";</td><td class="lineno"></td></tr>
@@ -238,7 +168,7 @@ document.onkeydown = function(e) {
       <tr><td class="lineno"></td><td class="left">         "RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td> </td><td class="right">         "RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">          Detection (BFD)";</td><td> </td><td class="right">          Detection (BFD)";</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-3" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-3"><em> line 1154<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-3"><em> page 25, line 14<span class="hide"> &para;</span></em></a></th><td></td></tr>
+      <tr id="part-4" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-4"><em> page 25, line 14<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-4"><em> page 25, line 14<span class="hide"> &para;</span></em></a></th><td></td></tr>
       <tr><td class="lineno"></td><td class="left">        Relating to IETF Documents</td><td> </td><td class="right">        Relating to IETF Documents</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">        (https://trustee.ietf.org/license-info).</td><td> </td><td class="right">        (https://trustee.ietf.org/license-info).</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
@@ -249,160 +179,22 @@ document.onkeydown = function(e) {
       <tr><td class="lineno"></td><td class="left">        RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td> </td><td class="right">        RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">        Detection (BFD)";</td><td> </td><td class="right">        Detection (BFD)";</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0010"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">     <span class="insert">revision 2021-12-01 {</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       description</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         "9127-bis.";</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       reference</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         "RFC XXXX: YANG Data Model for Bidirectional Forwarding</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">          Detection (BFD).";</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">     }</span></td><td class="lineno"></td></tr>
+      <tr id="diff0006"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     revision 2021-12-0<span class="delete">6</span> {</td><td> </td><td class="rblock">     revision 2021-12-0<span class="insert">7</span> {</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">         "9127-bis.";</td><td> </td><td class="right">         "9127-bis.";</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">       reference</td><td> </td><td class="right">       reference</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">         "RFC XXXX: YANG Data Model for Bidirectional Forwarding</td><td> </td><td class="right">         "RFC XXXX: YANG Data Model for Bidirectional Forwarding</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">          Detection (BFD).";</td><td> </td><td class="right">          Detection (BFD).";</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     }</td><td> </td><td class="right">     }</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">     revision 2021-10-21 {</td><td> </td><td class="right">     revision 2021-10-21 {</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">         "Initial revision.";</td><td> </td><td class="right">         "Initial revision.";</td><td class="lineno"></td></tr>
       <tr><td class="lineno"></td><td class="left">       reference</td><td> </td><td class="right">       reference</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td> </td><td class="right">         "RFC 9127: YANG Data Model for Bidirectional Forwarding</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">          Detection (BFD)";</td><td> </td><td class="right">          Detection (BFD)";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     }</td><td> </td><td class="right">     }</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     /*</td><td> </td><td class="right">     /*</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">      * Feature definitions</td><td> </td><td class="right">      * Feature definitions</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-4" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-4"><em> line 1200<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-4"><em> page 26, line 19<span class="hide"> &para;</span></em></a></th><td></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     feature echo-mode {</td><td> </td><td class="right">     feature echo-mode {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "This feature indicates that the server supports BFD Echo</td><td> </td><td class="right">         "This feature indicates that the server supports BFD Echo</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">          mode.";</td><td> </td><td class="right">          mode.";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       reference</td><td> </td><td class="right">       reference</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "RFC 5880: Bidirectional Forwarding Detection (BFD),</td><td> </td><td class="right">         "RFC 5880: Bidirectional Forwarding Detection (BFD),</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">          Section 6.4";</td><td> </td><td class="right">          Section 6.4";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     }</td><td> </td><td class="right">     }</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0011"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">     <span class="insert">feature client-cfg-parameters {</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       description</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         "This feature allows protocol models to configure BFD client</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">          session parameters.";</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       reference</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         "RFC XXXX: YANG Data Model for Bidirectional Forwarding</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                    Detection (BFD).";</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">     }</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     /*</td><td> </td><td class="right">     /*</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">      * Identity definitions</td><td> </td><td class="right">      * Identity definitions</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">      */</td><td> </td><td class="right">      */</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     identity bfdv1 {</td><td> </td><td class="right">     identity bfdv1 {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       base rt:control-plane-protocol;</td><td> </td><td class="right">       base rt:control-plane-protocol;</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "BFD protocol version 1.";</td><td> </td><td class="right">         "BFD protocol version 1.";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       reference</td><td> </td><td class="right">       reference</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "RFC 5880: Bidirectional Forwarding Detection (BFD)";</td><td> </td><td class="right">         "RFC 5880: Bidirectional Forwarding Detection (BFD)";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-5" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-5"><em> line 1415<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-5"><em> page 30, line 51<span class="hide"> &para;</span></em></a></th><td></td></tr>
-      <tr><td class="lineno"></td><td class="left">     grouping client-cfg-parms {</td><td> </td><td class="right">     grouping client-cfg-parms {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "BFD grouping for configuration parameters</td><td> </td><td class="right">         "BFD grouping for configuration parameters</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">          used by BFD clients, e.g., IGP or MPLS.";</td><td> </td><td class="right">          used by BFD clients, e.g., IGP or MPLS.";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       leaf enabled {</td><td> </td><td class="right">       leaf enabled {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         type boolean;</td><td> </td><td class="right">         type boolean;</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         default "false";</td><td> </td><td class="right">         default "false";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         description</td><td> </td><td class="right">         description</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">           "Indicates whether BFD is enabled.";</td><td> </td><td class="right">           "Indicates whether BFD is enabled.";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       }</td><td> </td><td class="right">       }</td><td class="lineno"></td></tr>
-      <tr id="diff0012"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">       uses <span class="delete">base-cfg-parms;</span></td><td> </td><td class="rblock">       uses <span class="insert">base-cfg-parms {</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         if-feature "client-cfg-parameters";</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       }</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     }</td><td> </td><td class="right">     }</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">     grouping common-cfg-parms {</td><td> </td><td class="right">     grouping common-cfg-parms {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       description</td><td> </td><td class="right">       description</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         "BFD grouping for common configuration parameters.";</td><td> </td><td class="right">         "BFD grouping for common configuration parameters.";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       uses base-cfg-parms;</td><td> </td><td class="right">       uses base-cfg-parms;</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">       leaf demand-enabled {</td><td> </td><td class="right">       leaf demand-enabled {</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         if-feature "demand-mode";</td><td> </td><td class="right">         if-feature "demand-mode";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         type boolean;</td><td> </td><td class="right">         type boolean;</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">         default "false";</td><td> </td><td class="right">         default "false";</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-6" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-6"><em> line 2978<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-6"><em> page 64, line 17<span class="hide"> &para;</span></em></a></th><td></td></tr>
-      <tr><td class="lineno"></td><td class="left">   This document defines the initial version of the IANA-maintained</td><td> </td><td class="right">   This document defines the initial version of the IANA-maintained</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   "iana-bfd-types" YANG module.</td><td> </td><td class="right">   "iana-bfd-types" YANG module.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   The "iana-bfd-types" YANG module mirrors the "BFD Diagnostic Codes"</td><td> </td><td class="right">   The "iana-bfd-types" YANG module mirrors the "BFD Diagnostic Codes"</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   and "BFD Authentication Types" registries at</td><td> </td><td class="right">   and "BFD Authentication Types" registries at</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   &lt;https://www.iana.org/assignments/bfd-parameters/&gt;.  Whenever these</td><td> </td><td class="right">   &lt;https://www.iana.org/assignments/bfd-parameters/&gt;.  Whenever these</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   registries change, IANA must update the "iana-bfd-types" YANG module.</td><td> </td><td class="right">   registries change, IANA must update the "iana-bfd-types" YANG module.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">6.  References</td><td> </td><td class="right">6.  References</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0013"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">6.1.  <span class="delete">Normative </span>References</td><td> </td><td class="rblock">6.1.  References</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,</td><td> </td><td class="right">   [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC3688, January 2004,</td><td> </td><td class="right">              DOI 10.17487/RFC3688, January 2004,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc3688&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc3688&gt;.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC5586]  Bocci, M., Ed., Vigoureux, M., Ed., and S. Bryant, Ed.,</td><td> </td><td class="right">   [RFC5586]  Bocci, M., Ed., Vigoureux, M., Ed., and S. Bryant, Ed.,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              "MPLS Generic Associated Channel", RFC 5586,</td><td> </td><td class="right">              "MPLS Generic Associated Channel", RFC 5586,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC5586, June 2009,</td><td> </td><td class="right">              DOI 10.17487/RFC5586, June 2009,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc5586&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc5586&gt;.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-7" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-7"><em> line 3082<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-7"><em> page 66, line 27<span class="hide"> &para;</span></em></a></th><td></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol</td><td> </td><td class="right">   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,</td><td> </td><td class="right">              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc8446&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc8446&gt;.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC8960]  Saad, T., Raza, K., Gandhi, R., Liu, X., and V. Beeram, "A</td><td> </td><td class="right">   [RFC8960]  Saad, T., Raza, K., Gandhi, R., Liu, X., and V. Beeram, "A</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              YANG Data Model for MPLS Base", RFC 8960,</td><td> </td><td class="right">              YANG Data Model for MPLS Base", RFC 8960,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC8960, December 2020,</td><td> </td><td class="right">              DOI 10.17487/RFC8960, December 2020,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc8960&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc8960&gt;.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="diff0014"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock">6.2.  <span class="delete">Informative </span>References</td><td> </td><td class="rblock">6.2.  References</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC3031]  Rosen, E., Viswanathan, A., and R. Callon, "Multiprotocol</td><td> </td><td class="right">   [RFC3031]  Rosen, E., Viswanathan, A., and R. Callon, "Multiprotocol</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              Label Switching Architecture", RFC 3031,</td><td> </td><td class="right">              Label Switching Architecture", RFC 3031,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC3031, January 2001,</td><td> </td><td class="right">              DOI 10.17487/RFC3031, January 2001,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc3031&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc3031&gt;.</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   [RFC6428]  Allan, D., Ed., Swallow, G., Ed., and J. Drake, Ed.,</td><td> </td><td class="right">   [RFC6428]  Allan, D., Ed., Swallow, G., Ed., and J. Drake, Ed.,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              "Proactive Connectivity Verification, Continuity Check,</td><td> </td><td class="right">              "Proactive Connectivity Verification, Continuity Check,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              and Remote Defect Indication for the MPLS Transport</td><td> </td><td class="right">              and Remote Defect Indication for the MPLS Transport</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">              Profile", RFC 6428, DOI 10.17487/RFC6428, November 2011,</td><td> </td><td class="right">              Profile", RFC 6428, DOI 10.17487/RFC6428, November 2011,</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr id="part-8" class="change" ><td></td><th><small>skipping to change at</small><a href="#part-8"><em> line 3282<span class="hide"> &para;</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="#part-8"><em> page 70, line 36<span class="hide"> &para;</span></em></a></th><td></td></tr>
-      <tr><td class="lineno"></td><td class="left">   Santosh Pallagatti</td><td> </td><td class="right">   Santosh Pallagatti</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   VMware</td><td> </td><td class="right">   VMware</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   India</td><td> </td><td class="right">   India</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   Email: santosh.pallagatti@gmail.com</td><td> </td><td class="right">   Email: santosh.pallagatti@gmail.com</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   Greg Mirsky</td><td> </td><td class="right">   Greg Mirsky</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   Ericsson</td><td> </td><td class="right">   Ericsson</td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="left">   Email: gregimirsky@gmail.com</td><td> </td><td class="right">   Email: gregimirsky@gmail.com</td><td class="lineno"></td></tr>
-      <tr id="diff0015"><td></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">Updates since RFC 9127</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   This version of the draft updates the 'ietf-bfd-types' module to</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   define a new feature called 'client-cfg-parameters' and a 'if-</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   feature' statement that conditionally includes definition of</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   parameters such as 'multiplier' or 'desired-min-tx-interval'.  The</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   feature statement allows YANG implementations of protocol such as</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   OSPF, ISIS, PIM and BGP, to support both a model where such</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   parameters are not needed, such as when multiple BFD sessions are</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   supported over a given interface, as well as when they need to be</span></td><td class="lineno"></td></tr>
-      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   defined per session.</span></td><td class="lineno"></td></tr>
 
      <tr><td></td><td class="left"></td><td> </td><td class="right"></td><td></td></tr>
-     <tr id="end" bgcolor="gray"><th colspan="5" align="center">&nbsp;End of changes. 15 change blocks.&nbsp;</th></tr>
-     <tr class="stats"><td></td><th><i>69 lines changed or deleted</i></th><th><i> </i></th><th><i>93 lines changed or added</i></th><td></td></tr>
+     <tr id="end" bgcolor="gray"><th colspan="5" align="center">&nbsp;End of changes. 6 change blocks.&nbsp;</th></tr>
+     <tr class="stats"><td></td><th><i>8 lines changed or deleted</i></th><th><i> </i></th><th><i>8 lines changed or added</i></th><td></td></tr>
      <tr><td colspan="5" align="center" class="small"><br/>This html diff was produced by rfcdiff 1.48. The latest version is available from <a href="http://www.tools.ietf.org/tools/rfcdiff/" >http://tools.ietf.org/tools/rfcdiff/</a> </td></tr>
    </table>
    </body>

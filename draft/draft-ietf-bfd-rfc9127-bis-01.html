@@ -5,16 +5,16 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
+<meta content="Mahesh Jethanandani" name="author">
 <meta content="Reshad Rahman" name="author">
 <meta content="Lianshu Zheng" name="author">
-<meta content="Mahesh Jethanandani" name="author">
 <meta content="Santosh Pallagatti" name="author">
 <meta content="Greg Mirsky" name="author">
 <meta content="
        This document defines a YANG data model that can be used to configure
       and manage Bidirectional Forwarding Detection (BFD). 
        The YANG modules in this document conform to the Network Management
-      Datastore Architecture (NMDA) (RFC 8342). 
+      Datastore Architecture (NMDA) (RFC 8342). This document updates YANG Data Model for Bidirectional Forwarding Detection (BFD) (RFC 9127). 
     " name="description">
 <meta content="xml2rfc 3.11.1" name="generator">
 <meta content="Liveliness check" name="keyword">
@@ -23,10 +23,10 @@
 <meta content="IS-IS" name="keyword">
 <meta content="TCP-AO" name="keyword">
 <meta content="MD5" name="keyword">
-<meta content="draft-ietf-bfd-rfc9127bis-latest" name="ietf.draft">
+<meta content="draft-ietf-bfd-rfc9127-bis-01" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.11.1
-    Python 3.8.9
+    Python 3.10.0
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.0
@@ -39,10 +39,10 @@
     pyflakes 2.4.0
     PyYAML 6.0
     requests 2.26.0
-    setuptools 58.5.2
+    setuptools 57.4.0
     six 1.16.0
 -->
-<link href="draft-ietf-bfd-rfc9127-bis-00.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-bfd-rfc9127-bis-01.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1202,7 +1202,7 @@ li > p:last-of-type {
 <td class="right">December 2021</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Rahman, et al.</td>
+<td class="left">Jethanandani, et al.</td>
 <td class="center">Expires 28 June 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1213,7 +1213,10 @@ li > p:last-of-type {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-bfd-rfc9127bis-latest</dd>
+<dd class="internet-draft">draft-ietf-bfd-rfc9127-bis-01</dd>
+<dt class="label-updates">Updates:</dt>
+<dd class="updates">
+<a href="https://www.rfc-editor.org/rfc/rfc9127" class="eref">9127</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2021-12-25" class="published">25 December 2021</time>
@@ -1225,6 +1228,11 @@ li > p:last-of-type {
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
+      <div class="author-name">M. Jethanandani, <span class="editor">Ed.</span>
+</div>
+<div class="org">Xoriant Corporation</div>
+</div>
+<div class="author">
       <div class="author-name">R. Rahman, <span class="editor">Ed.</span>
 </div>
 </div>
@@ -1232,11 +1240,6 @@ li > p:last-of-type {
       <div class="author-name">L. Zheng, <span class="editor">Ed.</span>
 </div>
 <div class="org">Huawei Technologies</div>
-</div>
-<div class="author">
-      <div class="author-name">M. Jethanandani, <span class="editor">Ed.</span>
-</div>
-<div class="org">Xoriant Corporation</div>
 </div>
 <div class="author">
       <div class="author-name">S. Pallagatti</div>
@@ -1255,7 +1258,7 @@ li > p:last-of-type {
 <p id="section-abstract-1">This document defines a YANG data model that can be used to configure
       and manage Bidirectional Forwarding Detection (BFD).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <p id="section-abstract-2">The YANG modules in this document conform to the Network Management
-      Datastore Architecture (NMDA) (RFC 8342).<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+      Datastore Architecture (NMDA) (RFC 8342). This document updates YANG Data Model for Bidirectional Forwarding Detection (BFD) (RFC 9127).<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1375,25 +1378,22 @@ li > p:last-of-type {
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.11">
-                <p id="section-toc.1-1.2.2.11.1"><a href="#section-2.11" class="xref">2.11</a>. <a href="#name-iana-bfd-yang-module" class="xref">IANA BFD YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.11.1"><a href="#section-2.12" class="xref">2.12</a>. <a href="#name-bfd-types-yang-module" class="xref">BFD Types YANG Module</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.12">
-                <p id="section-toc.1-1.2.2.12.1"><a href="#section-2.12" class="xref">2.12</a>. <a href="#name-bfd-types-yang-module" class="xref">BFD Types YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.12.1"><a href="#section-2.13" class="xref">2.13</a>. <a href="#name-bfd-top-level-yang-module" class="xref">BFD Top-Level YANG Module</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.13">
-                <p id="section-toc.1-1.2.2.13.1"><a href="#section-2.13" class="xref">2.13</a>. <a href="#name-bfd-top-level-yang-module" class="xref">BFD Top-Level YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.13.1"><a href="#section-2.14" class="xref">2.14</a>. <a href="#name-bfd-ip-single-hop-yang-modu" class="xref">BFD IP Single-Hop YANG Module</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.14">
-                <p id="section-toc.1-1.2.2.14.1"><a href="#section-2.14" class="xref">2.14</a>. <a href="#name-bfd-ip-single-hop-yang-modu" class="xref">BFD IP Single-Hop YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.14.1"><a href="#section-2.15" class="xref">2.15</a>. <a href="#name-bfd-ip-multihop-yang-module" class="xref">BFD IP Multihop YANG Module</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.15">
-                <p id="section-toc.1-1.2.2.15.1"><a href="#section-2.15" class="xref">2.15</a>. <a href="#name-bfd-ip-multihop-yang-module" class="xref">BFD IP Multihop YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.15.1"><a href="#section-2.16" class="xref">2.16</a>. <a href="#name-bfd-over-lag-yang-module" class="xref">BFD-over-LAG YANG Module</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.16">
-                <p id="section-toc.1-1.2.2.16.1"><a href="#section-2.16" class="xref">2.16</a>. <a href="#name-bfd-over-lag-yang-module" class="xref">BFD-over-LAG YANG Module</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.17">
-                <p id="section-toc.1-1.2.2.17.1"><a href="#section-2.17" class="xref">2.17</a>. <a href="#name-bfd-over-mpls-yang-module" class="xref">BFD-over-MPLS YANG Module</a></p>
+                <p id="section-toc.1-1.2.2.16.1"><a href="#section-2.17" class="xref">2.17</a>. <a href="#name-bfd-over-mpls-yang-module" class="xref">BFD-over-MPLS YANG Module</a></p>
 </li>
             </ul>
 </li>
@@ -1419,11 +1419,6 @@ li > p:last-of-type {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-iana-maintained-iana-bfd-ty" class="xref">IANA-Maintained "iana-bfd-types" Module</a></p>
-</li>
-            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a></p>
@@ -1448,10 +1443,10 @@ li > p:last-of-type {
             <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="xref"></a><a href="#name-acknowledgments" class="xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-C" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-C" class="xref"></a><a href="#name-updates-since-rfc-9127" class="xref">Updates since RFC 9127</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-D" class="xref"></a><a href="#name-updates-since-rfc-9127" class="xref">Updates since RFC 9127</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-D" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -2353,178 +2348,6 @@ module: ietf-bfd-mpls
 </dl>
 </section>
 </section>
-<section id="section-2.11">
-        <h3 id="name-iana-bfd-yang-module">
-<a href="#section-2.11" class="section-number selfRef">2.11. </a><a href="#name-iana-bfd-yang-module" class="section-name selfRef">IANA BFD YANG Module</a>
-        </h3>
-<p id="section-2.11-1">This YANG module imports definitions from <span>[<a href="#RFC5880" class="xref">RFC5880</a>]</span>.  It
-      references <span>[<a href="#RFC5880" class="xref">RFC5880</a>]</span> and <span>[<a href="#RFC6428" class="xref">RFC6428</a>]</span>.<a href="#section-2.11-1" class="pilcrow">¶</a></p>
-<div id="section-2.11-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "iana-bfd-types@2021-10-21.yang"
-
-module iana-bfd-types {
-  yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:iana-bfd-types";
-  prefix iana-bfd-types;
-
-  organization
-    "IANA";
-  contact
-    "Internet Assigned Numbers Authority
-
-     Postal: ICANN
-             12025 Waterfront Drive, Suite 300
-             Los Angeles, CA 90094-2536
-             United States of America
-     Tel:    +1 310 301 5800
-     &lt;mailto:iana@iana.org&gt;";
-  description
-    "This module defines YANG data types for IANA-registered
-     BFD parameters.
-
-     This YANG module is maintained by IANA and reflects the
-     'BFD Diagnostic Codes' and 'BFD Authentication Types'
-     registries.
-
-     Copyright (c) 2021 IETF Trust and the persons identified as
-     authors of the code.  All rights reserved.
-
-     Redistribution and use in source and binary forms, with or
-     without modification, is permitted pursuant to, and subject to
-     the license terms contained in, the Simplified BSD License set
-     forth in Section 4.c of the IETF Trust's Legal Provisions
-     Relating to IETF Documents
-     (https://trustee.ietf.org/license-info).
-
-     This version of this YANG module is part of RFC 9127; see the
-     RFC itself for full legal notices.";
-  reference
-    "RFC 9127: YANG Data Model for Bidirectional Forwarding
-     Detection (BFD)";
-
-  revision 2021-10-21 {
-    description
-      "Initial revision.";
-    reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
-       Detection (BFD)";
-  }
-
-  /*
-   * Type definitions
-   */
-
-  typedef diagnostic {
-    type enumeration {
-      enum none {
-        value 0;
-        description
-          "No Diagnostic.";
-      }
-      enum control-expiry {
-        value 1;
-        description
-          "Control Detection Time Expired.";
-      }
-      enum echo-failed {
-        value 2;
-        description
-          "Echo Function Failed.";
-      }
-      enum neighbor-down {
-        value 3;
-        description
-          "Neighbor Signaled Session Down.";
-      }
-      enum forwarding-reset {
-        value 4;
-        description
-          "Forwarding Plane Reset.";
-      }
-      enum path-down {
-        value 5;
-        description
-          "Path Down.";
-      }
-      enum concatenated-path-down {
-        value 6;
-        description
-          "Concatenated Path Down.";
-      }
-      enum admin-down {
-        value 7;
-        description
-          "Administratively Down.";
-      }
-      enum reverse-concatenated-path-down {
-        value 8;
-        description
-          "Reverse Concatenated Path Down.";
-      }
-      enum mis-connectivity-defect {
-        value 9;
-        description
-          "Mis-connectivity defect.";
-        reference
-          "RFC 5880: Bidirectional Forwarding Detection (BFD)
-           RFC 6428: Proactive Connectivity Verification, Continuity
-           Check, and Remote Defect Indication for the MPLS Transport
-           Profile";
-      }
-    }
-    description
-      "BFD diagnostic codes as defined in RFC 5880.  Values are
-       maintained in the 'BFD Diagnostic Codes' IANA registry.
-       Range is 0 to 31.";
-    reference
-      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
-  }
-
-  typedef auth-type {
-    type enumeration {
-      enum reserved {
-        value 0;
-        description
-          "Reserved.";
-      }
-      enum simple-password {
-        value 1;
-        description
-          "Simple Password.";
-      }
-      enum keyed-md5 {
-        value 2;
-        description
-          "Keyed MD5.";
-      }
-      enum meticulous-keyed-md5 {
-        value 3;
-        description
-          "Meticulous Keyed MD5.";
-      }
-      enum keyed-sha1 {
-        value 4;
-        description
-          "Keyed SHA1.";
-      }
-      enum meticulous-keyed-sha1 {
-        value 5;
-        description
-          "Meticulous Keyed SHA1.";
-      }
-    }
-    description
-      "BFD authentication type as defined in RFC 5880.  Values are
-       maintained in the 'BFD Authentication Types' IANA registry.
-       Range is 0 to 255.";
-    reference
-      "RFC 5880: Bidirectional Forwarding Detection (BFD)";
-  }
-}
-
-&lt;CODE ENDS&gt;</pre><a href="#section-2.11-2" class="pilcrow">¶</a>
-</div>
-</section>
 <div id="BFD-TYPES">
 <section id="section-2.12">
         <h3 id="name-bfd-types-yang-module">
@@ -2539,7 +2362,7 @@ module iana-bfd-types {
         <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>.<a href="#section-2.12-1" class="pilcrow">¶</a></p>
 <p id="section-2.12-2" class="keepWithNext"></p>
 <div id="section-2.12-3">
-<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-01.yang"
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-types@2021-12-25.yang"
 
 
 module ietf-bfd-types {
@@ -2611,9 +2434,9 @@ module ietf-bfd-types {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-01 {
+  revision 2021-12-25 {
     description
-      "9127-bis.";
+      "Updates to add client configuration parameters feature.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD).";
@@ -2664,7 +2487,7 @@ module ietf-bfd-types {
        Section 6.4";
   }
 
-  feature client-cfg-parameters {
+  feature client-base-cfg-parms {
     description
       "This feature allows protocol models to configure BFD client
        session parameters.";
@@ -2889,7 +2712,7 @@ module ietf-bfd-types {
         "Indicates whether BFD is enabled.";
     }
     uses base-cfg-parms {
-      if-feature "client-cfg-parameters";
+      if-feature "client-base-cfg-parms";
     }
   }
 
@@ -3234,8 +3057,10 @@ module ietf-bfd-types {
 <p id="section-2.13-1">This YANG module imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>. It also references
         <span>[<a href="#RFC5880" class="xref">RFC5880</a>]</span>.<a href="#section-2.13-1" class="pilcrow">¶</a></p>
-<div id="section-2.13-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd@2021-10-21.yang"
+<p id="section-2.13-2" class="keepWithNext"></p>
+<div id="section-2.13-3">
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd@2021-12-25.yang"
+
 
 module ietf-bfd {
   yang-version 1.1;
@@ -3245,7 +3070,7 @@ module ietf-bfd {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-routing {
@@ -3290,6 +3115,13 @@ module ietf-bfd {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-25 {
+    description
+      "Updating reference to RFC XXXX.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -3315,7 +3147,8 @@ module ietf-bfd {
   }
 }
 
-&lt;CODE ENDS&gt;</pre><a href="#section-2.13-2" class="pilcrow">¶</a>
+
+&lt;CODE ENDS&gt;</pre><a href="#section-2.13-3" class="pilcrow">¶</a>
 </div>
 </section>
 <div id="bfd-ip-single-hop-module">
@@ -3326,8 +3159,10 @@ module ietf-bfd {
 <p id="section-2.14-1">This YANG module imports "interface-ref" from <span>[<a href="#RFC8343" class="xref">RFC8343</a>]</span> and typedefs from <span>[<a href="#RFC6991" class="xref">RFC6991</a>]</span>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>, and it references
         <span>[<a href="#RFC5881" class="xref">RFC5881</a>]</span>.<a href="#section-2.14-1" class="pilcrow">¶</a></p>
-<div id="section-2.14-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-ip-sh@2021-10-21.yang"
+<p id="section-2.14-2" class="keepWithNext"></p>
+<div id="section-2.14-3">
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-ip-sh@2021-12-25.yang"
+
 
 module ietf-bfd-ip-sh {
   yang-version 1.1;
@@ -3337,13 +3172,13 @@ module ietf-bfd-ip-sh {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-interfaces {
@@ -3399,6 +3234,13 @@ module ietf-bfd-ip-sh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-25 {
+    description
+      "Updating reference to RFC XXXX.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -3482,7 +3324,8 @@ module ietf-bfd-ip-sh {
   }
 }
 
-&lt;CODE ENDS&gt;</pre><a href="#section-2.14-2" class="pilcrow">¶</a>
+
+&lt;CODE ENDS&gt;</pre><a href="#section-2.14-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -3495,8 +3338,10 @@ module ietf-bfd-ip-sh {
         <span>[<a href="#RFC6991" class="xref">RFC6991</a>]</span>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>, and it references
         <span>[<a href="#RFC5883" class="xref">RFC5883</a>]</span>.<a href="#section-2.15-1" class="pilcrow">¶</a></p>
-<div id="section-2.15-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-ip-mh@2021-10-21.yang"
+<p id="section-2.15-2" class="keepWithNext"></p>
+<div id="section-2.15-3">
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-ip-mh@2021-12-25.yang"
+
 
 module ietf-bfd-ip-mh {
   yang-version 1.1;
@@ -3506,13 +3351,13 @@ module ietf-bfd-ip-mh {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-inet-types {
@@ -3563,6 +3408,13 @@ module ietf-bfd-ip-mh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-25 {
+    description
+      "Updating reference to RFC XXXX.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -3643,7 +3495,8 @@ module ietf-bfd-ip-mh {
   }
 }
 
-&lt;CODE ENDS&gt;</pre><a href="#section-2.15-2" class="pilcrow">¶</a>
+
+&lt;CODE ENDS&gt;</pre><a href="#section-2.15-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -3655,8 +3508,10 @@ module ietf-bfd-ip-mh {
 <p id="section-2.16-1">This YANG module imports "interface-ref" from <span>[<a href="#RFC8343" class="xref">RFC8343</a>]</span> and typedefs from <span>[<a href="#RFC6991" class="xref">RFC6991</a>]</span>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>. Additionally, it references
         <span>[<a href="#RFC7130" class="xref">RFC7130</a>]</span>.<a href="#section-2.16-1" class="pilcrow">¶</a></p>
-<div id="section-2.16-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-lag@2021-10-21.yang"
+<p id="section-2.16-2" class="keepWithNext"></p>
+<div id="section-2.16-3">
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-lag@2021-12-25.yang"
+
 
 module ietf-bfd-lag {
   yang-version 1.1;
@@ -3666,13 +3521,13 @@ module ietf-bfd-lag {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-interfaces {
@@ -3728,6 +3583,13 @@ module ietf-bfd-lag {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-25 {
+    description
+      "Updating reference to RFC XXXX.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -3848,7 +3710,8 @@ module ietf-bfd-lag {
   }
 }
 
-&lt;CODE ENDS&gt;</pre><a href="#section-2.16-2" class="pilcrow">¶</a>
+
+&lt;CODE ENDS&gt;</pre><a href="#section-2.16-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -3861,8 +3724,10 @@ module ietf-bfd-lag {
         "/routing/control-plane-protocols/control-plane-protocol" from <span>[<a href="#RFC8349" class="xref">RFC8349</a>]</span>.
         Additionally, it references <span>[<a href="#RFC5586" class="xref">RFC5586</a>]</span> and
         <span>[<a href="#RFC5884" class="xref">RFC5884</a>]</span>.<a href="#section-2.17-1" class="pilcrow">¶</a></p>
-<div id="section-2.17-2">
-<pre class="lang-yang sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-mpls@2021-10-21.yang"
+<p id="section-2.17-2" class="keepWithNext"></p>
+<div id="section-2.17-3">
+<pre class="sourcecode">&lt;CODE BEGINS&gt; file "ietf-bfd-mpls@2021-12-25.yang"
+
 
 module ietf-bfd-mpls {
   yang-version 1.1;
@@ -3872,13 +3737,13 @@ module ietf-bfd-mpls {
   import ietf-bfd-types {
     prefix bfd-types;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-bfd {
     prefix bfd;
     reference
-      "RFC 9127: YANG Data Model for Bidirectional Forwarding
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD)";
   }
   import ietf-inet-types {
@@ -3926,9 +3791,17 @@ module ietf-bfd-mpls {
   reference
     "RFC 5884: Bidirectional Forwarding Detection (BFD)
      for MPLS Label Switched Paths (LSPs)
-     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     RFC XXXX: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
+  revision 2021-12-25 {
+    description
+      "Updates to use base-cfg-parms instead of client-cfg-parms,
+       and add the enabled flag.";
+    reference
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
+  }
   revision 2021-10-21 {
     description
       "Initial revision.";
@@ -4002,7 +3875,13 @@ module ietf-bfd-mpls {
       container egress {
         description
           "Egress configuration.";
-        uses bfd-types:client-cfg-parms;
+        leaf enabled {
+          type boolean;
+          default "false";
+          description
+            "Indicates whether BFD over MPLS is enabled.";
+        }
+        uses bfd-types:base-cfg-parms;
         uses bfd-types:auth-parms;
       }
       container session-groups {
@@ -4053,7 +3932,8 @@ module ietf-bfd-mpls {
   }
 }
 
-&lt;CODE ENDS&gt;</pre><a href="#section-2.17-2" class="pilcrow">¶</a>
+
+&lt;CODE ENDS&gt;</pre><a href="#section-2.17-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -4415,11 +4295,10 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
       <h2 id="name-iana-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-5-1">IANA has registered the following namespace URIs in the "IETF XML
-      Registry" <span>[<a href="#RFC3688" class="xref">RFC3688</a>]</span>:<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This document registers the following namespace URIs in the IETF XML in the "IETF XML Registry" <span>[<a href="#RFC3688" class="xref">RFC3688</a>]</span>:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlCompact dlParallel" id="section-5-2">
         <dt id="section-5-2.1">URI:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-2.2">urn:ietf:params:xml:ns:yang:iana-bfd-types<a href="#section-5-2.2" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-2.2">urn:ietf:params:xml:ns:yang:ietf-bfd-types<a href="#section-5-2.2" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-2.3">Registrant Contact:</dt>
@@ -4428,20 +4307,6 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         <dd class="break"></dd>
 <dt id="section-5-2.5">XML:</dt>
         <dd style="margin-left: 1.5em" id="section-5-2.6">N/A; the requested URI is an XML namespace.<a href="#section-5-2.6" class="pilcrow">¶</a>
-</dd>
-      <dd class="break"></dd>
-</dl>
-<span class="break"></span><dl class="dlCompact dlParallel" id="section-5-3">
-        <dt id="section-5-3.1">URI:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-3.2">urn:ietf:params:xml:ns:yang:ietf-bfd-types<a href="#section-5-3.2" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-3.3">Registrant Contact:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-3.4">The IESG.<a href="#section-5-3.4" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-3.5">XML:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-3.6">N/A; the requested URI is an XML namespace.<a href="#section-5-3.6" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4515,41 +4380,23 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
       <dd class="break"></dd>
 </dl>
-<p id="section-5-9">IANA has registered the following YANG modules in the "YANG Module Names"
-      registry <span>[<a href="#RFC6020" class="xref">RFC6020</a>]</span>:<a href="#section-5-9" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlCompact dlParallel" id="section-5-10">
-        <dt id="section-5-10.1">Name:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-10.2">iana-bfd-types<a href="#section-5-10.2" class="pilcrow">¶</a>
+<p id="section-5-3">This document registers the following YANG modules in the "YANG Module Names"
+      registry <span>[<a href="#RFC6020" class="xref">RFC6020</a>]</span>:<a href="#section-5-3" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlCompact dlParallel" id="section-5-9">
+        <dt id="section-5-9.1">Name:</dt>
+        <dd style="margin-left: 1.5em" id="section-5-9.2">ietf-bfd-types<a href="#section-5-9.2" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-5-10.3">Namespace:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-10.4">urn:ietf:params:xml:ns:yang:iana-bfd-types<a href="#section-5-10.4" class="pilcrow">¶</a>
+<dt id="section-5-9.3">Namespace:</dt>
+        <dd style="margin-left: 1.5em" id="section-5-9.4">urn:ietf:params:xml:ns:yang:ietf-bfd-types<a href="#section-5-9.4" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-5-10.5">Prefix:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-10.6">iana-bfd-types<a href="#section-5-10.6" class="pilcrow">¶</a>
+<dt id="section-5-9.5">Prefix:</dt>
+        <dd style="margin-left: 1.5em" id="section-5-9.6">bfd-types<a href="#section-5-9.6" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-5-10.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-10.8">RFC 9127<a href="#section-5-10.8" class="pilcrow">¶</a>
-</dd>
-      <dd class="break"></dd>
-</dl>
-<span class="break"></span><dl class="dlCompact dlParallel" id="section-5-11">
-        <dt id="section-5-11.1">Name:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-11.2">ietf-bfd-types<a href="#section-5-11.2" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-11.3">Namespace:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-11.4">urn:ietf:params:xml:ns:yang:ietf-bfd-types<a href="#section-5-11.4" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-11.5">Prefix:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-11.6">bfd-types<a href="#section-5-11.6" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-11.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-11.8">RFC 9127<a href="#section-5-11.8" class="pilcrow">¶</a>
+<dt id="section-5-9.7">Reference:</dt>
+        <dd style="margin-left: 1.5em" id="section-5-9.8">RFC XXXX<a href="#section-5-9.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4567,7 +4414,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-12.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-12.8">RFC 9127<a href="#section-5-12.8" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-12.8">RFC XXXX<a href="#section-5-12.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4585,7 +4432,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-13.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-13.8">RFC 9127<a href="#section-5-13.8" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-13.8">RFC XXXX<a href="#section-5-13.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4603,7 +4450,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-14.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-14.8">RFC 9127<a href="#section-5-14.8" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-14.8">RFC XXXX<a href="#section-5-14.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4621,7 +4468,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-15.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-15.8">RFC 9127<a href="#section-5-15.8" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-15.8">RFC XXXX<a href="#section-5-15.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -4639,22 +4486,10 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 </dd>
         <dd class="break"></dd>
 <dt id="section-5-16.7">Reference:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-16.8">RFC 9127<a href="#section-5-16.8" class="pilcrow">¶</a>
+        <dd style="margin-left: 1.5em" id="section-5-16.8">RFC XXXX<a href="#section-5-16.8" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
-<section id="section-5.1">
-        <h3 id="name-iana-maintained-iana-bfd-ty">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-iana-maintained-iana-bfd-ty" class="section-name selfRef">IANA-Maintained "iana-bfd-types" Module</a>
-        </h3>
-<p id="section-5.1-1">This document defines the initial version of the IANA-maintained
-        "iana-bfd-types" YANG module.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1-2">The "iana-bfd-types" YANG module mirrors the "BFD Diagnostic Codes"
-        and "BFD Authentication Types" registries at
-        <span>&lt;<a href="https://www.iana.org/assignments/bfd-parameters/">https://www.iana.org/assignments/bfd-parameters/</a>&gt;</span>. Whenever
-        these registries change, IANA must update the "iana-bfd-types" YANG
-        module.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-</section>
 </section>
 <section id="section-6">
       <h2 id="name-references">
@@ -4763,10 +4598,6 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
 <dt id="RFC3031">[RFC3031]</dt>
         <dd>
 <span class="refAuthor">Rosen, E.</span>, <span class="refAuthor">Viswanathan, A.</span>, and <span class="refAuthor">R. Callon</span>, <span class="refTitle">"Multiprotocol Label Switching Architecture"</span>, <span class="seriesInfo">RFC 3031</span>, <span class="seriesInfo">DOI 10.17487/RFC3031</span>, <time datetime="2001-01" class="refDate">January 2001</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3031">https://www.rfc-editor.org/info/rfc3031</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC6428">[RFC6428]</dt>
-        <dd>
-<span class="refAuthor">Allan, D., Ed.</span>, <span class="refAuthor">Swallow, G., Ed.</span>, and <span class="refAuthor">J. Drake, Ed.</span>, <span class="refTitle">"Proactive Connectivity Verification, Continuity Check, and Remote Defect Indication for the MPLS Transport Profile"</span>, <span class="seriesInfo">RFC 6428</span>, <span class="seriesInfo">DOI 10.17487/RFC6428</span>, <time datetime="2011-11" class="refDate">November 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6428">https://www.rfc-editor.org/info/rfc6428</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8342">[RFC8342]</dt>
         <dd>
@@ -4935,11 +4766,43 @@ module example-bfd-echo {
       <span class="contact-name">Jürgen Schönwälder</span>, who was instrumental in improving the YANG
       modules.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
-<div id="authors-addresses">
+<div id="updates-since-rfc-9127">
 <section id="appendix-C">
+      <h2 id="name-updates-since-rfc-9127">
+<a href="#name-updates-since-rfc-9127" class="section-name selfRef">Updates since RFC 9127</a>
+      </h2>
+<p id="appendix-C-1">This version of the draft updates the 'ietf-bfd-types' module
+      to define a new feature called 'client-base-cfg-parms and a
+      'if-feature' statement that conditionally includes definition
+      of parameters such as 'multiplier' or
+      'desired-min-tx-interval'. The feature statement allows
+      YANG implementations of protocol such as OSPF, ISIS, PIM
+      and BGP, to support both a model where such parameters are
+      not needed, such as when multiple BFD sessions are supported
+      over a given interface, as well as when they need to be
+      defined per session. As a result, the BFD MPLS module has to
+      use the base-cfg-parms instead of client-cfg-parms to be able
+      to include all the parameters unconditionally.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-D">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Mahesh Jethanandani (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Xoriant Corporation</span></div>
+<div dir="auto" class="left"><span class="street-address">1248 Reamwood Ave</span></div>
+<div dir="auto" class="left">
+<span class="locality">Sunnyvale</span>, <span class="region">California</span> <span class="postal-code">94089</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">United States of America</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mjethanandani@gmail.com" class="email">mjethanandani@gmail.com</a>
+</div>
+</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Reshad Rahman (<span class="role">editor</span>)</span></div>
 <div dir="auto" class="left"><span class="country-name">Canada</span></div>
@@ -4955,19 +4818,6 @@ module example-bfd-echo {
 <div class="email">
 <span>Email:</span>
 <a href="mailto:veronique_cheng@hotmail.com" class="email">veronique_cheng@hotmail.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Mahesh Jethanandani (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">Xoriant Corporation</span></div>
-<div dir="auto" class="left"><span class="street-address">1248 Reamwood Ave</span></div>
-<div dir="auto" class="left">
-<span class="locality">Sunnyvale</span>, <span class="region">California</span> <span class="postal-code">94089</span>
-</div>
-<div dir="auto" class="left"><span class="country-name">United States of America</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:mjethanandani@gmail.com" class="email">mjethanandani@gmail.com</a>
 </div>
 </address>
 <address class="vcard">
@@ -4987,23 +4837,6 @@ module example-bfd-echo {
 <a href="mailto:gregimirsky@gmail.com" class="email">gregimirsky@gmail.com</a>
 </div>
 </address>
-</section>
-</div>
-<div id="updates-since-9127">
-<section id="appendix-D">
-      <h2 id="name-updates-since-rfc-9127">
-<a href="#name-updates-since-rfc-9127" class="section-name selfRef">Updates since RFC 9127</a>
-      </h2>
-<p id="appendix-D-1">This version of the draft updates the 'ietf-bfd-types' module
-      to define a new feature called 'client-cfg-parameters' and a
-      'if-feature' statement that conditionally includes definition
-      of parameters such as 'multiplier' or
-      'desired-min-tx-interval'. The feature statement allows
-      YANG implementations of protocol such as OSPF, ISIS, PIM
-      and BGP, to support both a model where such parameters are
-      not needed, such as when multiple BFD sessions are supported
-      over a given interface, as well as when they need to be
-      defined per session.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <script>const toc = document.getElementById("toc");
