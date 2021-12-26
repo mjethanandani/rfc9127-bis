@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding="utf-8"?>
-<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 <?rfc toc="yes"?>
 <?rfc tocompact="no"?>
 <?rfc tocdepth="6"?>
@@ -8,15 +7,6 @@
 <rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-01" ipr="trust200902" updates="9127">
   <front>
     <title abbrev="BFD YANG">YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
-    <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
-      <organization showOnFrontPage="true"/>
-      <address>
-        <postal>
-          <country>Canada</country>
-        </postal>
-        <email>reshad@yahoo.com</email>
-      </address>
-    </author>
     <author fullname="Mahesh Jethanandani" initials="M." role="editor" surname="Jethanandani">
       <organization showOnFrontPage="true">Xoriant Corporation</organization>
       <address>
@@ -28,6 +18,15 @@
           <country>United States of America</country>
         </postal>
         <email>mjethanandani@gmail.com</email>
+      </address>
+    </author>
+    <author fullname="Reshad Rahman" initials="R." role="editor" surname="Rahman">
+      <organization showOnFrontPage="true"/>
+      <address>
+        <postal>
+          <country>Canada</country>
+        </postal>
+        <email>reshad@yahoo.com</email>
       </address>
     </author>
     <author fullname="Lianshu Zheng" initials="L." role="editor" surname="Zheng">
@@ -221,6 +220,17 @@
           </li>
           <li pn="section-toc.1-1.5">
             <t indent="0" pn="section-toc.1-1.5.1"><xref derivedContent="5" format="counter" sectionFormat="of" target="section-5"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-iana-considerations">IANA Considerations</xref></t>
+          </li>
+          <li pn="section-toc.1-1.6">
+            <t indent="0" pn="section-toc.1-1.6.1"><xref derivedContent="6" format="counter" sectionFormat="of" target="section-6"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-references">References</xref></t>
+            <ul bare="true" empty="true" indent="2" spacing="compact" pn="section-toc.1-1.6.2">
+              <li pn="section-toc.1-1.6.2.1">
+                <t indent="0" pn="section-toc.1-1.6.2.1.1"><xref derivedContent="6.1" format="counter" sectionFormat="of" target="section-6.1"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-normative-references">Normative References</xref></t>
+              </li>
+              <li pn="section-toc.1-1.6.2.2">
+                <t indent="0" pn="section-toc.1-1.6.2.2.1"><xref derivedContent="6.2" format="counter" sectionFormat="of" target="section-6.2"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-informative-references">Informative References</xref></t>
+              </li>
+            </ul>
           </li>
           <li pn="section-toc.1-1.7">
             <t indent="0" pn="section-toc.1-1.7.1"><xref derivedContent="Appendix A" format="default" sectionFormat="of" target="section-appendix.a"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-echo-function-configuration">Echo Function Configuration Example</xref></t>
@@ -1052,7 +1062,7 @@ module: ietf-bfd-mpls
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-types@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd-types@2021-12-25.yang"
 
 module ietf-bfd-types {
   yang-version 1.1;
@@ -1123,7 +1133,7 @@ module ietf-bfd-types {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
       "Updates to add client configuration parameters feature.";
     reference
@@ -1748,7 +1758,7 @@ module ietf-bfd-types {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd@2021-12-25.yang"
 
 module ietf-bfd {
   yang-version 1.1;
@@ -1803,7 +1813,7 @@ module ietf-bfd {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
       "Updating reference to RFC XXXX.";
     reference
@@ -1849,7 +1859,7 @@ module ietf-bfd {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-ip-sh@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd-ip-sh@2021-12-25.yang"
 
 module ietf-bfd-ip-sh {
   yang-version 1.1;
@@ -1921,7 +1931,7 @@ module ietf-bfd-ip-sh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
       "Updating reference to RFC XXXX.";
     reference
@@ -2025,7 +2035,7 @@ module ietf-bfd-ip-sh {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-ip-mh@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd-ip-mh@2021-12-25.yang"
 
 module ietf-bfd-ip-mh {
   yang-version 1.1;
@@ -2092,7 +2102,7 @@ module ietf-bfd-ip-mh {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
       "Updating reference to RFC XXXX.";
     reference
@@ -2192,7 +2202,7 @@ module ietf-bfd-ip-mh {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-lag@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd-lag@2021-12-25.yang"
 
 module ietf-bfd-lag {
   yang-version 1.1;
@@ -2264,7 +2274,7 @@ module ietf-bfd-lag {
      RFC 9127: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
       "Updating reference to RFC XXXX.";
     reference
@@ -2405,7 +2415,7 @@ module ietf-bfd-lag {
           <preamble/>
 
           <artwork align="left"><![CDATA[
-<CODE BEGINS> file "ietf-bfd-mpls@2021-12-23.yang"
+<CODE BEGINS> file "ietf-bfd-mpls@2021-12-25.yang"
 
 module ietf-bfd-mpls {
   yang-version 1.1;
@@ -2469,12 +2479,13 @@ module ietf-bfd-mpls {
   reference
     "RFC 5884: Bidirectional Forwarding Detection (BFD)
      for MPLS Label Switched Paths (LSPs)
-     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     RFC XXXX: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
-  revision 2021-12-23 {
+  revision 2021-12-25 {
     description
-      "Updating reference to RFC XXXX.";
+      "Updates to use base-cfg-parms instead of client-cfg-parms,
+       and add the enabled flag.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD).";
@@ -2552,7 +2563,13 @@ module ietf-bfd-mpls {
       container egress {
         description
           "Egress configuration.";
-        uses bfd-types:client-cfg-parms;
+        leaf enabled {
+          type boolean;
+          default "false";
+          description
+            "Indicates whether BFD over MPLS is enabled.";
+        }
+        uses bfd-types:base-cfg-parms;
         uses bfd-types:auth-parms;
       }
       container session-groups {
@@ -3031,8 +3048,10 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
   </middle>
   <back>
     <references pn="section-6">
+      <name slugifiedName="name-references">References</name>
       <references pn="section-6.1">
-        <reference anchor="RFC3688" target="https://www.rfc-editor.org/info/rfc3688" quoteTitle="true" derivedAnchor="RFC3688">
+        <name slugifiedName="name-normative-references">Normative References</name>
+	<reference anchor="RFC3688" target="https://www.rfc-editor.org/info/rfc3688" quoteTitle="true" derivedAnchor="RFC3688">
           <front>
             <title>The IETF XML Registry</title>
             <author initials="M." surname="Mealling" fullname="M. Mealling">
@@ -3446,6 +3465,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         </reference>
       </references>
       <references pn="section-6.2">
+        <name slugifiedName="name-informative-references">Informative References</name>
         <reference anchor="RFC3031" target="https://www.rfc-editor.org/info/rfc3031" quoteTitle="true" derivedAnchor="RFC3031">
           <front>
             <title>Multiprotocol Label Switching Architecture</title>
@@ -3740,7 +3760,9 @@ module example-bfd-echo {
       and BGP, to support both a model where such parameters are
       not needed, such as when multiple BFD sessions are supported
       over a given interface, as well as when they need to be
-      defined per session.
+      defined per session. As a result, the BFD MPLS module has to
+      use the base-cfg-parms instead of client-cfg-parms to be able
+      to include all the parameters unconditionally.
       </t>
     </section>
   </back>
