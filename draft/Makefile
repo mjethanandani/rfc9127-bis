@@ -75,6 +75,7 @@ $(next).xml: $(draft).xml ../src/yang/iana-bfd-types.yang ../src/yang/ietf-bfd-i
 
 %.txt: %.xml
 	$(xml2rfc) $< -o $@ --text
+	$(idnits) $@
 
 ifeq "$(shell uname -s 2>/dev/null)" "Darwin"
 sed_i := sed -i ''
