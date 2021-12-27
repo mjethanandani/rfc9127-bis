@@ -165,7 +165,7 @@
                 <t indent="0" pn="section-toc.1-1.2.2.9.1"><xref derivedContent="2.9" format="counter" sectionFormat="of" target="section-2.9"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-over-mpls-lsps-hierarch">BFD-over-MPLS-LSPs Hierarchy</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.10">
-                <t indent="0" pn="section-toc.1-1.2.2.10.1"><xref derivedContent="2.10" format="counter" sectionFormat="of" target="section-2.10"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-interaction-with-other-yang">Interaction with Other YANG Modules</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.10.1"><xref derivedContent="2.10" format="counter" sectionFormat="of" target="section-2.10"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-interaction-with-other-yang">Interaction with other YANG Modules</xref></t>
                 <ul bare="true" empty="true" indent="2" spacing="compact" pn="section-toc.1-1.2.2.10.2">
                   <li pn="section-toc.1-1.2.2.10.2.1">
                     <t indent="0" pn="section-toc.1-1.2.2.10.2.1.1"><xref derivedContent="2.10.1" format="counter" sectionFormat="of" target="section-2.10.1"/>.  <xref derivedContent="" format="title" sectionFormat="of" target="name-ietf-interfaces-module">"ietf-interfaces" Module</xref></t>
@@ -1001,7 +1001,7 @@ module: ietf-bfd-mpls
       </section>
 
       <section numbered="true" toc="include" removeInRFC="false" pn="section-2.10">
-        <name slugifiedName="name-interaction-with-other-yang">Interaction with Other YANG Modules</name>
+        <name slugifiedName="name-interaction-with-other-yang">Interaction with other YANG Modules</name>
         <t indent="0" pn="section-2.10-1"><xref target="RFC8532" format="default" sectionFormat="of" derivedContent="RFC8532">"Generic YANG Data Model for the Management
         of Operations, Administration, and Maintenance (OAM) Protocols That
         Use Connectionless Communications"</xref> describes how the 
