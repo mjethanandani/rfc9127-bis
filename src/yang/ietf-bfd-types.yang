@@ -69,10 +69,10 @@ module ietf-bfd-types {
 
   revision YYYY-MM-DD {
     description
-      "9127-bis.";
+      "Updates to add client configuration parameters feature.";
     reference
-      "I-D.ietf-bfd-rfc9127: YANG Data Model for Bidirectional
-       Forwarding Detection (BFD).";
+      "RFC XXXX: YANG Data Model for Bidirectional Forwarding
+       Detection (BFD).";
   }
   revision 2021-10-21 {
     description
@@ -120,7 +120,7 @@ module ietf-bfd-types {
        Section 6.4";
   }
 
-  feature client-cfg-parameters {
+  feature client-base-cfg-parms {
     description
       "This feature allows protocol models to configure BFD client
        session parameters.";
@@ -345,7 +345,7 @@ module ietf-bfd-types {
         "Indicates whether BFD is enabled.";
     }
     uses base-cfg-parms {
-      if-feature "client-cfg-parameters";
+      if-feature "client-base-cfg-parms";
     }
   }
 
