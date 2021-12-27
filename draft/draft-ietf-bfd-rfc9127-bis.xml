@@ -4,7 +4,7 @@
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-latest" ipr="trust200902" updates="9127">
+<rfc category="std" docName="draft-ietf-bfd-rfc9127-bis-latest" ipr="trust200902" updates="9127" submissionType="IETF" consensus="true">
   <front>
     <title abbrev="BFD YANG">YANG Data Model for Bidirectional Forwarding Detection (BFD)</title>
     <author fullname="Mahesh Jethanandani" initials="M." role="editor" surname="Jethanandani">
@@ -179,22 +179,22 @@
                 </ul>
               </li>
               <li pn="section-toc.1-1.2.2.12">
-                <t indent="0" pn="section-toc.1-1.2.2.12.1"><xref derivedContent="2.12" format="counter" sectionFormat="of" target="section-2.12"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-types-yang-module">BFD Types YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.12.1"><xref derivedContent="2.12" format="counter" sectionFormat="of" target="section-2.11"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-types-yang-module">BFD Types YANG Module</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.13">
-                <t indent="0" pn="section-toc.1-1.2.2.13.1"><xref derivedContent="2.13" format="counter" sectionFormat="of" target="section-2.13"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-top-level-yang-module">BFD Top-Level YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.13.1"><xref derivedContent="2.13" format="counter" sectionFormat="of" target="section-2.12"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-top-level-yang-module">BFD Top-Level YANG Module</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.14">
-                <t indent="0" pn="section-toc.1-1.2.2.14.1"><xref derivedContent="2.14" format="counter" sectionFormat="of" target="section-2.14"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-ip-single-hop-yang-modu">BFD IP Single-Hop YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.14.1"><xref derivedContent="2.14" format="counter" sectionFormat="of" target="section-2.13"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-ip-single-hop-yang-modu">BFD IP Single-Hop YANG Module</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.15">
-                <t indent="0" pn="section-toc.1-1.2.2.15.1"><xref derivedContent="2.15" format="counter" sectionFormat="of" target="section-2.15"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-ip-multihop-yang-module">BFD IP Multihop YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.15.1"><xref derivedContent="2.15" format="counter" sectionFormat="of" target="section-2.14"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-ip-multihop-yang-module">BFD IP Multihop YANG Module</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.16">
-                <t indent="0" pn="section-toc.1-1.2.2.16.1"><xref derivedContent="2.16" format="counter" sectionFormat="of" target="section-2.16"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-over-lag-yang-module">BFD-over-LAG YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.16.1"><xref derivedContent="2.16" format="counter" sectionFormat="of" target="section-2.15"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-over-lag-yang-module">BFD-over-LAG YANG Module</xref></t>
               </li>
               <li pn="section-toc.1-1.2.2.17">
-                <t indent="0" pn="section-toc.1-1.2.2.17.1"><xref derivedContent="2.17" format="counter" sectionFormat="of" target="section-2.17"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-over-mpls-yang-module">BFD-over-MPLS YANG Module</xref></t>
+                <t indent="0" pn="section-toc.1-1.2.2.17.1"><xref derivedContent="2.17" format="counter" sectionFormat="of" target="section-2.16"/>. <xref derivedContent="" format="title" sectionFormat="of" target="name-bfd-over-mpls-yang-module">BFD-over-MPLS YANG Module</xref></t>
               </li>
             </ul>
           </li>
@@ -1047,9 +1047,9 @@ module: ietf-bfd-mpls
         </section>
       </section>
 
-      <section anchor="BFD-TYPES" numbered="true" toc="include" removeInRFC="false" pn="section-2.12">
+      <section anchor="BFD-TYPES" numbered="true" toc="include" removeInRFC="false" pn="section-2.11">
         <name slugifiedName="name-bfd-types-yang-module">BFD Types YANG Module</name>
-        <t indent="0" pn="section-2.12-1">This YANG module imports typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/> and <xref target="RFC8177" format="default" sectionFormat="of" derivedContent="RFC8177"/>.
+        <t indent="0" pn="section-2.11-1">This YANG module imports typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/> and <xref target="RFC8177" format="default" sectionFormat="of" derivedContent="RFC8177"/>.
         It also imports definitions from
         <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>, <xref target="RFC5881" format="default" sectionFormat="of" derivedContent="RFC5881"/>,
         <xref target="RFC5883" format="default" sectionFormat="of" derivedContent="RFC5883"/>, <xref target="RFC5884" format="default" sectionFormat="of" derivedContent="RFC5884"/>, and
@@ -1071,9 +1071,9 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-types@YYYY-MM-DD.yang)
         </figure>
       </section>
 
-      <section numbered="true" toc="include" removeInRFC="false" pn="section-2.13">
+      <section numbered="true" toc="include" removeInRFC="false" pn="section-2.12">
         <name slugifiedName="name-bfd-top-level-yang-module">BFD Top-Level YANG Module</name>
-        <t indent="0" pn="section-2.13-1">This YANG module imports and augments
+        <t indent="0" pn="section-2.12-1">This YANG module imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. It also references
         <xref target="RFC5880" format="default" sectionFormat="of" derivedContent="RFC5880"/>.</t>
         <figure align="left">
@@ -1089,9 +1089,9 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd@YYYY-MM-DD.yang)
         </figure>
       </section>
 
-      <section anchor="bfd-ip-single-hop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.14">
+      <section anchor="bfd-ip-single-hop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.13">
         <name slugifiedName="name-bfd-ip-single-hop-yang-modu">BFD IP Single-Hop YANG Module</name>
-        <t indent="0" pn="section-2.14-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
+        <t indent="0" pn="section-2.13-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5881" format="default" sectionFormat="of" derivedContent="RFC5881"/>.</t>
         <figure align="left">
@@ -1106,9 +1106,9 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-sh@YYYY-MM-DD.yang)
         ]]></artwork>
         </figure>
       </section>
-      <section anchor="bfd-ip-multihop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.15">
+      <section anchor="bfd-ip-multihop-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.14">
         <name slugifiedName="name-bfd-ip-multihop-yang-module">BFD IP Multihop YANG Module</name>
-        <t indent="0" pn="section-2.15-1">This YANG module imports typedefs from
+        <t indent="0" pn="section-2.14-1">This YANG module imports typedefs from
         <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>, and it references
         <xref target="RFC5883" format="default" sectionFormat="of" derivedContent="RFC5883"/>.</t>
@@ -1124,9 +1124,9 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
         ]]></artwork>
         </figure>
       </section>
-      <section anchor="bfd-over-lag-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.16">
+      <section anchor="bfd-over-lag-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.15">
         <name slugifiedName="name-bfd-over-lag-yang-module">BFD-over-LAG YANG Module</name>
-        <t indent="0" pn="section-2.16-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
+        <t indent="0" pn="section-2.15-1">This YANG module imports "interface-ref" from <xref target="RFC8343" format="default" sectionFormat="of" derivedContent="RFC8343"/> and typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>.  It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>. Additionally, it references
         <xref target="RFC7130" format="default" sectionFormat="of" derivedContent="RFC7130"/>.</t>
         <figure align="left">
@@ -1141,9 +1141,9 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-ip-mh@YYYY-MM-DD.yang)
         ]]></artwork>
         </figure>
       </section>
-      <section anchor="bfd-over-mpls-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.17">
+      <section anchor="bfd-over-mpls-module" numbered="true" toc="include" removeInRFC="false" pn="section-2.16">
         <name slugifiedName="name-bfd-over-mpls-yang-module">BFD-over-MPLS YANG Module</name>
-        <t indent="0" pn="section-2.17-1">This YANG module imports typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
+        <t indent="0" pn="section-2.16-1">This YANG module imports typedefs from <xref target="RFC6991" format="default" sectionFormat="of" derivedContent="RFC6991"/>. It also imports and augments
         "/routing/control-plane-protocols/control-plane-protocol" from <xref target="RFC8349" format="default" sectionFormat="of" derivedContent="RFC8349"/>.
         Additionally, it references <xref target="RFC5586" format="default" sectionFormat="of" derivedContent="RFC5586"/> and
         <xref target="RFC5884" format="default" sectionFormat="of" derivedContent="RFC5884"/>.</t>
@@ -1477,9 +1477,17 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         <dt pn="section-5-2.5">XML:</dt>
         <dd pn="section-5-2.6">N/A; the requested URI is an XML namespace.</dd>
       </dl>
-      <dl newline="false" spacing="compact" indent="3" pn="section-5-4">
+      <dl newline="false" spacing="compact" indent="3" pn="section-5-3">
+         <dt pn="section-5-3.1">URI:</dt>
+         <dd pn="section-5-3.2">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dt pn="section-5-3.3">Registrant Contact:</dt>
+         <dd pn="section-5-3.4">The IESG.</dd>
+         <dt pn="section-5-3.5">XML:</dt>
+         <dd pn="section-5-3.6">N/A; the requested URI is an XML namespace.</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-4">
          <dt pn="section-5-4.1">URI:</dt>
-         <dd pn="section-5-4.2">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dd pn="section-5-4.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
          <dt pn="section-5-4.3">Registrant Contact:</dt>
          <dd pn="section-5-4.4">The IESG.</dd>
          <dt pn="section-5-4.5">XML:</dt>
@@ -1487,7 +1495,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
        </dl>
        <dl newline="false" spacing="compact" indent="3" pn="section-5-5">
          <dt pn="section-5-5.1">URI:</dt>
-         <dd pn="section-5-5.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
+         <dd pn="section-5-5.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
          <dt pn="section-5-5.3">Registrant Contact:</dt>
          <dd pn="section-5-5.4">The IESG.</dd>
          <dt pn="section-5-5.5">XML:</dt>
@@ -1495,7 +1503,7 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
        </dl>
        <dl newline="false" spacing="compact" indent="3" pn="section-5-6">
          <dt pn="section-5-6.1">URI:</dt>
-         <dd pn="section-5-6.2">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
+         <dd pn="section-5-6.2">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
          <dt pn="section-5-6.3">Registrant Contact:</dt>
          <dd pn="section-5-6.4">The IESG.</dd>
          <dt pn="section-5-6.5">XML:</dt>
@@ -1503,21 +1511,13 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
        </dl>
        <dl newline="false" spacing="compact" indent="3" pn="section-5-7">
          <dt pn="section-5-7.1">URI:</dt>
-         <dd pn="section-5-7.2">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
+         <dd pn="section-5-7.2">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
          <dt pn="section-5-7.3">Registrant Contact:</dt>
          <dd pn="section-5-7.4">The IESG.</dd>
          <dt pn="section-5-7.5">XML:</dt>
          <dd pn="section-5-7.6">N/A; the requested URI is an XML namespace.</dd>
        </dl>
-       <dl newline="false" spacing="compact" indent="3" pn="section-5-8">
-         <dt pn="section-5-8.1">URI:</dt>
-         <dd pn="section-5-8.2">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
-         <dt pn="section-5-8.3">Registrant Contact:</dt>
-         <dd pn="section-5-8.4">The IESG.</dd>
-         <dt pn="section-5-8.5">XML:</dt>
-         <dd pn="section-5-8.6">N/A; the requested URI is an XML namespace.</dd>
-       </dl>
-       <t indent="0" pn="section-5-3">This document registers the following YANG modules in the "YANG Module Names"
+       <t indent="0" pn="section-5-8">This document registers the following YANG modules in the "YANG Module Names"
       registry <xref target="RFC6020" format="default" sectionFormat="of" derivedContent="RFC6020"/>:</t>
       <dl newline="false" spacing="compact" indent="3" pn="section-5-9">
         <dt pn="section-5-9.1">Name:</dt>
@@ -1529,55 +1529,55 @@ the subtrees and data nodes and their sensitivity/vulnerability from a write acc
         <dt pn="section-5-9.7">Reference:</dt>
         <dd pn="section-5-9.8">RFC XXXX</dd>
       </dl>
-      <dl newline="false" spacing="compact" indent="3" pn="section-5-12">
+      <dl newline="false" spacing="compact" indent="3" pn="section-5-10">
+         <dt pn="section-5-10.1">Name:</dt>
+         <dd pn="section-5-10.2">ietf-bfd</dd>
+         <dt pn="section-5-10.3">Namespace:</dt>
+         <dd pn="section-5-10.4">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dt pn="section-5-10.5">Prefix:</dt>
+         <dd pn="section-5-10.6">bfd</dd>
+         <dt pn="section-5-10.7">Reference:</dt>
+         <dd pn="section-5-10.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-11">
+         <dt pn="section-5-11.1">Name:</dt>
+         <dd pn="section-5-11.2">ietf-bfd-ip-sh</dd>
+         <dt pn="section-5-11.3">Namespace:</dt>
+         <dd pn="section-5-11.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
+         <dt pn="section-5-11.5">Prefix:</dt>
+         <dd pn="section-5-11.6">bfd-ip-sh</dd>
+         <dt pn="section-5-11.7">Reference:</dt>
+         <dd pn="section-5-11.8">RFC XXXX</dd>
+       </dl>
+       <dl newline="false" spacing="compact" indent="3" pn="section-5-12">
          <dt pn="section-5-12.1">Name:</dt>
-         <dd pn="section-5-12.2">ietf-bfd</dd>
+         <dd pn="section-5-12.2">ietf-bfd-ip-mh</dd>
          <dt pn="section-5-12.3">Namespace:</dt>
-         <dd pn="section-5-12.4">urn:ietf:params:xml:ns:yang:ietf-bfd</dd>
+         <dd pn="section-5-12.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
          <dt pn="section-5-12.5">Prefix:</dt>
-         <dd pn="section-5-12.6">bfd</dd>
+         <dd pn="section-5-12.6">bfd-ip-mh</dd>
          <dt pn="section-5-12.7">Reference:</dt>
          <dd pn="section-5-12.8">RFC XXXX</dd>
        </dl>
        <dl newline="false" spacing="compact" indent="3" pn="section-5-13">
          <dt pn="section-5-13.1">Name:</dt>
-         <dd pn="section-5-13.2">ietf-bfd-ip-sh</dd>
+         <dd pn="section-5-13.2">ietf-bfd-lag</dd>
          <dt pn="section-5-13.3">Namespace:</dt>
-         <dd pn="section-5-13.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-sh</dd>
+         <dd pn="section-5-13.4">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
          <dt pn="section-5-13.5">Prefix:</dt>
-         <dd pn="section-5-13.6">bfd-ip-sh</dd>
+         <dd pn="section-5-13.6">bfd-lag</dd>
          <dt pn="section-5-13.7">Reference:</dt>
          <dd pn="section-5-13.8">RFC XXXX</dd>
        </dl>
        <dl newline="false" spacing="compact" indent="3" pn="section-5-14">
          <dt pn="section-5-14.1">Name:</dt>
-         <dd pn="section-5-14.2">ietf-bfd-ip-mh</dd>
+         <dd pn="section-5-14.2">ietf-bfd-mpls</dd>
          <dt pn="section-5-14.3">Namespace:</dt>
-         <dd pn="section-5-14.4">urn:ietf:params:xml:ns:yang:ietf-bfd-ip-mh</dd>
+         <dd pn="section-5-14.4">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
          <dt pn="section-5-14.5">Prefix:</dt>
-         <dd pn="section-5-14.6">bfd-ip-mh</dd>
+         <dd pn="section-5-14.6">bfd-mpls</dd>
          <dt pn="section-5-14.7">Reference:</dt>
          <dd pn="section-5-14.8">RFC XXXX</dd>
-       </dl>
-       <dl newline="false" spacing="compact" indent="3" pn="section-5-15">
-         <dt pn="section-5-15.1">Name:</dt>
-         <dd pn="section-5-15.2">ietf-bfd-lag</dd>
-         <dt pn="section-5-15.3">Namespace:</dt>
-         <dd pn="section-5-15.4">urn:ietf:params:xml:ns:yang:ietf-bfd-lag</dd>
-         <dt pn="section-5-15.5">Prefix:</dt>
-         <dd pn="section-5-15.6">bfd-lag</dd>
-         <dt pn="section-5-15.7">Reference:</dt>
-         <dd pn="section-5-15.8">RFC XXXX</dd>
-       </dl>
-       <dl newline="false" spacing="compact" indent="3" pn="section-5-16">
-         <dt pn="section-5-16.1">Name:</dt>
-         <dd pn="section-5-16.2">ietf-bfd-mpls</dd>
-         <dt pn="section-5-16.3">Namespace:</dt>
-         <dd pn="section-5-16.4">urn:ietf:params:xml:ns:yang:ietf-bfd-mpls</dd>
-         <dt pn="section-5-16.5">Prefix:</dt>
-         <dd pn="section-5-16.6">bfd-mpls</dd>
-         <dt pn="section-5-16.7">Reference:</dt>
-         <dd pn="section-5-16.8">RFC XXXX</dd>
        </dl>
      </section>
   </middle>
