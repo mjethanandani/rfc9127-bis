@@ -8,6 +8,7 @@ image=$(username)/ietf-bfd-yang
 all: container
 
 container:
+	-docker rm test
 	docker build -t $(image) .; docker run -it --name test \
 	--mount type=bind,src="$(PWD)",dst=/app \
 	$(image)
