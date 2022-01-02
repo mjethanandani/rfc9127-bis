@@ -2297,7 +2297,9 @@ module example-bfd-echo {
       over a given interface, as well as when they need to be
       defined per session. As a result, the BFD MPLS module has to
       use the base-cfg-parms instead of client-cfg-parms to be able
-      to include all the parameters unconditionally. The
+      to include all the parameters unconditionally.
+      </t>
+      <t>The
       iana-bfd-types module, created in RFC 9127, was delegated to
       IANA for maintenance. No changes are requested from IANA as
       part of this update.
