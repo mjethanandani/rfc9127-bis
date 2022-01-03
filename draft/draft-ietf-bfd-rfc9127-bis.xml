@@ -2299,6 +2299,11 @@ module example-bfd-echo {
       use the base-cfg-parms instead of client-cfg-parms to be able
       to include all the parameters unconditionally.
       </t>
+      <t>The
+      iana-bfd-types module, created in RFC 9127, was delegated to
+      IANA for maintenance. No changes are requested from IANA as
+      part of this update.
+      </t>
     </section>
   </back>
 </rfc>
