@@ -69,7 +69,7 @@ module ietf-bfd-types {
 
   revision YYYY-MM-DD {
     description
-      "This revision is non-backwards compatible with the
+      "This revision is not backwards compatible with the
        previous version of this model.
 
        This revision adds an 'if-feature' statement called 
