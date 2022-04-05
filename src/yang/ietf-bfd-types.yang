@@ -69,18 +69,7 @@ module ietf-bfd-types {
 
   revision YYYY-MM-DD {
     description
-      "This revision is non-backwards compatible with the
-       previous version of this model.
-
-       This revision adds an 'if-feature' statement called 
-       'client-base-cfg-parms' for client configuration parameters.
-       Clients expecting to use those parameters now need to
-       verify that the server declares support of the feature
-       before depending on the presence of the parameters.
-
-       The change was introduced for clients that do not need
-       them, and have to deviate to prevent them from being
-       included.";
+      "Updates to add client configuration parameters feature.";
     reference
       "RFC XXXX: YANG Data Model for Bidirectional Forwarding
        Detection (BFD).";
