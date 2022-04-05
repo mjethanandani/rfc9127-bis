@@ -1,0 +1,14 @@
+src/yang/ietf-bfd@*.yang
+src/yang/ietf-bfd-*@*.yang
+src/yang/iana-bfd-types@*.yang
+src/yang/example-bfd-*@*.yang
+src/yang/ietf-bfd@*-tree.txt
+src/yang/ietf-bfd-*@*-tree.txt
+src/yang/iana-bfd-types@*-tree.txt
+src/yang/example-bfd-*@*-tree.txt
+draft/draft-ietf-bfd-rfc9127-bis-*.*
+draft/Diff*
+src/-tree.txt.tmp
+bin/
+*~
+.DS_STORE
