@@ -19,10 +19,10 @@
               <lag-name>Bundle-Ether1</lag-name>
               <ipv6-dest-addr>2001:db8:112::16</ipv6-dest-addr>
               <desired-min-tx-interval>
-                100000
+                10000
               </desired-min-tx-interval>
               <required-min-rx-interval>
-                100000
+                10000
               </required-min-rx-interval>
               <use-ipv6>true</use-ipv6>
             </session>
