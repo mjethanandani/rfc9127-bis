@@ -44,11 +44,11 @@ module ietf-bfd {
      Relating to IETF Documents
      (https://trustee.ietf.org/license-info).
 
-     This version of this YANG module is part of RFC 9127; see the
+     This version of this YANG module is part of RFC XXXX; see the
      RFC itself for full legal notices.";
   reference
     "RFC 5880: Bidirectional Forwarding Detection (BFD)
-     RFC 9127: YANG Data Model for Bidirectional Forwarding
+     RFC XXXX: YANG Data Model for Bidirectional Forwarding
      Detection (BFD)";
 
   revision YYYY-MM-DD {

@@ -291,6 +291,20 @@
         <t indent="0" pn="section-1.1-1">This document uses the graphical representation of data models, as defined in
             <xref target="RFC8340" format="default" sectionFormat="of" derivedContent="RFC8340"/>.</t>
       </section>
+      <section numbered="true" toc="include" removeInRFC="true" pn="section-1.2">
+        <name slugifiedName="name-note-to-rfc-editor">Note to RFC
+        Editor</name>
+
+        <t indent="0" pn="section-1.2-2">This document uses several
+        placeholder values throughout the document. Please replace
+        them as follows and remove this note before publication.</t>
+
+        <t>RFC XXXX, where XXXX is the number assigned to this
+        document at the time of publication.</t>
+
+        <t>YYYY-MM-DD with the actual date of the publication of this
+        document.</t>
+      </section>
     </section>
     <section anchor="DESIGN-DATA" numbered="true" toc="include" removeInRFC="false" pn="section-2">
       <name slugifiedName="name-design-of-the-data-model">Design of the Data Model</name>
@@ -1281,10 +1295,10 @@ INSERT_TEXT_FROM_FILE(../src/yang/ietf-bfd-mpls@YYYY-MM-DD.yang)
                 &lt;lag-name&gt;Bundle-Ether1&lt;/lag-name&gt;
                 &lt;ipv6-dest-addr&gt;2001:db8:112::16&lt;/ipv6-dest-addr&gt;
                 &lt;desired-min-tx-interval&gt;
-                  100000
+                  10000
                 &lt;/desired-min-tx-interval&gt;
                 &lt;required-min-rx-interval&gt;
-                  100000
+                  10000
                 &lt;/required-min-rx-interval&gt;
                 &lt;use-ipv6&gt;true&lt;/use-ipv6&gt;
               &lt;/session&gt;
